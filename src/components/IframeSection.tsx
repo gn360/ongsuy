@@ -14,6 +14,7 @@ interface IframeSectionProps {
    *  <link rel="stylesheet" href="https://donafacil.uy/embed/donation-form.css">
    *  <script src="https://donafacil.uy/embed/donation-form.js" data-slug="..." data-sku="..."></script>`
    */
+  title?: string;
   embedHtml?: string;
   /** @deprecated Usar embedHtml. Script simple a inyectar sin procesar. */
   scriptContent?: string;
@@ -24,6 +25,7 @@ interface IframeSectionProps {
 }
 
 export default function IframeSection({
+  title,
   embedHtml,
   scriptContent,
   fallbackHtml,
@@ -124,6 +126,11 @@ export default function IframeSection({
 
   return (
     <section className="py-12 px-4 rounded-[20px] md:rounded-none bg-white md:bg-transparent">
+      {title && (
+        <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6 text-center">
+          {title}
+        </h2>
+      )}
       <div
         ref={containerRef}
         className="mx-auto w-full max-w-4xl rounded-xl overflow-hidden"

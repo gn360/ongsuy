@@ -26,6 +26,7 @@ export const siteConfig = {
 
   /** ── Bloque 3: Widget / Iframe ── */
   widget: {
+    title: 'Colaborá con nosotros',
     embedHtml: `<div id="df-donation-form"></div>
 <link rel="stylesheet" href="https://donafacil.uy/embed/donation-form.css">
 <script src="https://donafacil.uy/embed/donation-form.js" data-slug="casa-amiga-grupo-oncologico-vivir-mejor-20251009113226" data-sku="GHR2JRGZ"></script>`,
@@ -34,6 +35,8 @@ export const siteConfig = {
   /** ── Bloque 4: Galería ── */
   gallery: {
     title: 'Nuestras actividades',
+    /** Color del título (hex, rgb, etc.). Usar el mismo que hero.backgroundColor */
+    titleColor: '#00BD3D',
     images: [
       { src: 'https://picsum.photos/seed/ong1/600/400', alt: 'Actividad comunitaria 1' },
       { src: 'https://picsum.photos/seed/ong2/600/400', alt: 'Actividad comunitaria 2' },

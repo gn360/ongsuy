@@ -4,11 +4,13 @@ import ImageModal from './ImageModal';
 interface GallerySectionProps {
   title: string;
   images: { src: string; alt: string }[];
+  titleColor?: string;
 }
 
 export default function GallerySection({
   title,
   images,
+  titleColor,
 }: GallerySectionProps) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
@@ -30,7 +32,10 @@ export default function GallerySection({
   return (
     <section className="py-16 px-4 bg-white rounded-[20px] md:rounded-none overflow-hidden">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-10 text-center">
+        <h2
+          style={titleColor ? { color: titleColor } : undefined}
+          className="text-2xl md:text-3xl font-bold mb-10 text-center"
+        >
           {title}
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">

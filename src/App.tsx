@@ -13,8 +13,8 @@ export default function App() {
     <div className="min-h-screen flex flex-col gap-3 md:gap-0 px-3 md:px-0 py-3 md:py-0 bg-gray-100 md:bg-transparent">
       <HeroSection {...hero} />
       <TextSection paragraphs={text.paragraphs} />
-      <IframeSection embedHtml={widget.embedHtml} />
-      <GallerySection title={gallery.title} images={gallery.images} />
+      <IframeSection title={widget.title} embedHtml={widget.embedHtml} />
+      <GallerySection title={gallery.title} images={gallery.images} titleColor={gallery.titleColor} />
       <ContactSection {...contact} />
       <FooterSection {...footer} />
     </div>
