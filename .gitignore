@@ -32,3 +32,7 @@ npm-debug.log*
 
 # Vite
 .vite/
+
+# Build output copiado a la raíz por postbuild
+/assets/
+/vite.svg

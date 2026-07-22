@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "postbuild": "cp -r dist/* . && echo '✓ Build copiado a la raíz del subdominio'",
+    "deploy": "git pull && npm install && npm run build",
     "preview": "vite preview"
   },
   "dependencies": {
