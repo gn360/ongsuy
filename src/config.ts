@@ -68,5 +68,6 @@ export const siteConfig = {
       'https://tutiimg.nyc3.digitaloceanspaces.com/donaruy/recursos/logo-df-gris.png',
     legalText:
       'Las donaciones son fáciles, seguras y transparentes gracias al aval y la tecnología de Doná Fácil, aliados en recaudación de fondos.\n\nSitio desarrollado por Doná Fácil.',
+      copyrightText: '© 2026 Doná Fácil. Todos los derechos reservados.',
   },
 };
