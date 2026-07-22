@@ -24,7 +24,7 @@ export default function ContactSection({
         <img
           src={logoSrc}
           alt={`Logo ${organizationName}`}
-          className="w-20 h-20 md:w-24 md:h-24 object-contain mx-auto mb-5 drop-shadow-md"
+          className="w-20 h-20 md:w-24 md:h-24 object-contain mx-auto mb-5 drop-shadow-md rounded-lg"
         />
 
         {/* Nombre */}

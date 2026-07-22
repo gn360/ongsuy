@@ -3,30 +3,30 @@
 // ============================================================
 // Editar solo este archivo para personalizar la landing de cada ONG.
 // Los componentes toman sus valores de aquí, no tienen defaults fijos.
-
+const logoUrl = 'https://tutiimg.nyc3.digitaloceanspaces.com/donaruy/users/69/wgJPX0B0gD61PrZZwG1NqLQBApEfV8f0t6Ftgxu3.jpg';
 export const siteConfig = {
   /** URL del favicon (puede ser externa o local tipo /logo.svg) */
-  favicon: 'https://tutiimg.nyc3.digitaloceanspaces.com/donaruy/users/281/logo-casa-amiga.png',
+  favicon: logoUrl,
 
   /** Color de títulos (hex, rgb, etc.). Generalmente = hero.backgroundColor */
-  titleColor: '#00BD3D',
+  titleColor: '#6400ed',
 
   /** ── Bloque 1: Hero (fondo de color + logo + nombre) ── */
   hero: {
-    organizationName: 'Casa Amiga',
+    organizationName: 'FUNDACIÓN TROMPO AZUL',
     logoSrc:
-      'https://tutiimg.nyc3.digitaloceanspaces.com/donaruy/users/281/logo-casa-amiga.png',
+      logoUrl,
     /** Color de fondo (hex, rgb, hsl o clase Tailwind tipo "bg-gray-200") */
-    backgroundColor: '#00BD3D',
-    tagline: 'Grupo Oncológico "Vivir Mejor"',
+    backgroundColor: '#6400ed',
+    tagline: 'Entendemos de autismo',
   },
 
   /** ── Bloque 2: Texto ── */
   text: {
     paragraphs: [
-      'Grupo Oncologico Vivir Mejor- Casa Amiga fue creado por un grupo de pacientes oncológicos que vieron la necesidad que existía de contar con un lugar físico para alojar a pacientes oncológicos o familiares que llegan desde distintos puntos del país, a realizarse tratamientos o estudios médicos.',
-      'Estos pacientes generalmente no cuentan con los recursos necesarios para afrontar la situación, lo que sumado a la angustia y preocupación por su salud, hace que los casos sean aun mas complejos.',
-      'Casa Amiga brinda de forma gratuita estadía, alimentación, abrigo, artículos de higiene y todo lo necesario para que tanto el paciente como su entorno familiar puedan enfocarse en su recuperación.',
+      'Somos una fundación dedicada a la atención de niños y adolescentes con autismo, ofreciendo y promoviendo educación de alta calidad y atención terapéutica personalizada.',
+      'Brindamos también capacitación continua a profesionales en temas específicos y acompañamiento a las familias para que se transforme en un trabajo en equipo.',
+      'Trabajamos con cada niño de manera individual de acuerdo a sus necesidades, acordando un pan de trabajo con la familia, el que se evalúa y ajusta periódicamente. Con las intervenciones individuales y grupales buscamos estimular la comunicación, el juego, las habilidades sociales y académico-funcionales.',
     ],
   },
 
@@ -34,8 +34,9 @@ export const siteConfig = {
   widget: {
     title: 'Colaborá con nosotros',
     embedHtml: `<div id="df-donation-form"></div>
-<link rel="stylesheet" href="https://donafacil.uy/embed/donation-form.css">
-<script src="https://donafacil.uy/embed/donation-form.js" data-slug="casa-amiga-grupo-oncologico-vivir-mejor-20251009113226" data-sku="GHR2JRGZ"></script>`,
+            <link rel="stylesheet" href="https://donafacil.uy/embed/donation-form.css">
+            <script src="https://donafacil.uy/embed/donation-form.js" data-slug="fundacion-trompo-azul-20251009113224" data-sku="QSNCVQJV"></script>
+    `,
   },
 
   /** ── Bloque 4: Galería ── */
@@ -53,9 +54,8 @@ export const siteConfig = {
 
   /** ── Bloque 5: Contacto ── */
   contact: {
-    organizationName: 'Casa Amiga - Grupo Oncológico "Vivir Mejor"',
-    logoSrc:
-      'https://tutiimg.nyc3.digitaloceanspaces.com/donaruy/users/281/logo-casa-amiga.png',
+    organizationName: 'FUNDACIÓN TROMPO AZUL',
+    logoSrc: logoUrl,
     backgroundColor: 'bg-gray-200',
     phone: '+598 4733 9077',
     address: 'Cervantes 1035, Salto, Uruguay',

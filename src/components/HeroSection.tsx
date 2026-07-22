@@ -20,7 +20,7 @@ export default function HeroSection({
         <img
           src={logoSrc}
           alt={`Logo ${organizationName}`}
-          className="w-28 h-28 md:w-36 md:h-36 object-contain mb-6 drop-shadow-lg"
+          className="w-28 h-28 md:w-36 md:h-36 object-contain mb-6 drop-shadow-lg rounded-lg"
         />
       )}
       <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight mb-3">
