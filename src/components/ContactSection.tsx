@@ -12,7 +12,7 @@ export default function ContactSection({
   organizationName = 'Casa Amiga - Grupo Oncológico "Vivir Mejor"',
   logoSrc = 'https://tutiimg.nyc3.digitaloceanspaces.com/donaruy/users/281/logo-casa-amiga.png',
   backgroundColor = 'bg-gray-200',
-  email = null,
+  email = '',
   phone = '+598 4733 9077',
   address = 'Cervantes 1035, Salto, Uruguay',
   socialLinks = [],
