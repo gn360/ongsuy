@@ -3,9 +3,11 @@ import { useEffect, useRef } from 'react';
 interface IframeSectionProps {
   /**
    * HTML completo para embeber contenido de terceros.
-   * Se renderiza dentro de un <iframe> (about:blank + document.write)
-   * para que los scripts se ejecuten correctamente y el iframe herede
-   * el origin de la página padre.
+   * Se inyecta directamente en el DOM de la página (sin iframe)
+   * para que window.location.origin sea el real.
+   * Los scripts se extraen y recrean como elementos <script> reales
+   * copiando todos sus atributos (src, data-slug, data-sku, etc.),
+   * por lo que document.currentScript funciona correctamente.
    *
    * Ejemplo (Doná Fácil):
    * `<div id="df-donation-form"></div>
@@ -13,7 +15,7 @@ interface IframeSectionProps {
    *  <script src="https://donafacil.uy/embed/donation-form.js" data-slug="..." data-sku="..."></script>`
    */
   embedHtml?: string;
-  /** @deprecated Usar embedHtml. Script simple a inyectar sin iframe. */
+  /** @deprecated Usar embedHtml. Script simple a inyectar sin procesar. */
   scriptContent?: string;
   /** Placeholder cuando no hay embed ni script */
   fallbackHtml?: string;
@@ -42,52 +44,46 @@ export default function IframeSection({
       return;
     }
 
-    // Modo embedHtml: iframe about:blank + document.write (hereda origin del padre)
+    // Modo embedHtml: inyectar directo al DOM, sin iframe
     if (embedHtml) {
       container.innerHTML = '';
 
-      const docHtml = `<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; }
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: Inter, system-ui, -apple-system, sans-serif;
-      background: transparent;
-      overflow: hidden;
-    }
-  </style>
-</head>
-<body>
-${embedHtml}
-</body>
-</html>`;
+      // Parsear el HTML para separar scripts del resto
+      const temp = document.createElement('div');
+      temp.innerHTML = embedHtml;
 
-      const iframe = document.createElement('iframe');
-      iframe.style.border = 'none';
-      iframe.style.width = '100%';
-      iframe.style.minHeight = minHeight;
-      iframe.style.display = 'block';
-      iframe.style.overflow = 'hidden';
-      iframe.setAttribute('scrolling', 'no');
+      // Extraer scripts y copiar sus atributos
+      const oldScripts = temp.querySelectorAll('script');
+      const newScripts: HTMLScriptElement[] = [];
 
-      container.appendChild(iframe);
+      oldScripts.forEach((old) => {
+        const s = document.createElement('script');
+        // Copiar TODOS los atributos (src, data-slug, data-sku, data-tab, etc.)
+        for (let i = 0; i < old.attributes.length; i++) {
+          const attr = old.attributes[i];
+          s.setAttribute(attr.name, attr.value);
+        }
+        // Copiar contenido inline si existe
+        if (old.textContent) {
+          s.textContent = old.textContent;
+        }
+        newScripts.push(s);
+        old.remove(); // quitar del HTML parseado
+      });
 
-      // Escribir el HTML en el iframe (about:blank hereda origin del padre)
-      const doc = iframe.contentDocument || iframe.contentWindow?.document;
-      if (doc) {
-        doc.open();
-        doc.write(docHtml);
-        doc.close();
-      }
+      // Inyectar el HTML sin scripts (div, link, etc.)
+      container.innerHTML = temp.innerHTML;
 
+      // Appender scripts reales al DOM — se ejecutarán con
+      // document.currentScript apuntando a cada elemento,
+      // y window.location.origin será el de la página real.
+      newScripts.forEach((s) => container.appendChild(s));
+
+      // Listener para auto-ajuste de altura vía postMessage
       const handleMessage = (e: MessageEvent) => {
-        if (e.data && typeof e.data === 'object' && e.data.type === 'resize') {
-          iframe.style.height = e.data.height + 'px';
+        if (e.data?.type === 'resize' && e.data.height) {
+          const h = Number(e.data.height);
+          if (h > 0) container.style.minHeight = h + 'px';
         }
       };
       window.addEventListener('message', handleMessage);
@@ -97,7 +93,7 @@ ${embedHtml}
         container.innerHTML = '';
       };
     }
-  }, [embedHtml, scriptContent, minHeight]);
+  }, [embedHtml, scriptContent]);
 
   const defaultFallback = `
     <div class="flex items-center justify-center w-full h-full bg-gray-100 rounded-xl border-2 border-dashed border-gray-300">
