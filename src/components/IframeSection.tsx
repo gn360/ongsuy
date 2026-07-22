@@ -3,9 +3,9 @@ import { useEffect, useRef } from 'react';
 interface IframeSectionProps {
   /**
    * HTML completo para embeber contenido de terceros.
-   * Se renderiza dentro de un <iframe> con Blob URL para que los scripts
-   * se ejecuten correctamente y el iframe herede el origin de la página
-   * (necesario para widgets que usan window.location.origin).
+   * Se renderiza dentro de un <iframe> (about:blank + document.write)
+   * para que los scripts se ejecuten correctamente y el iframe herede
+   * el origin de la página padre.
    *
    * Ejemplo (Doná Fácil):
    * `<div id="df-donation-form"></div>
@@ -42,12 +42,10 @@ export default function IframeSection({
       return;
     }
 
-    // Modo embedHtml: crear iframe con Blob URL (hereda origin de la página)
+    // Modo embedHtml: iframe about:blank + document.write (hereda origin del padre)
     if (embedHtml) {
-      // Limpiar contenedor
       container.innerHTML = '';
 
-      // HTML completo dentro del iframe con estilos base
       const docHtml = `<!DOCTYPE html>
 <html>
 <head>
@@ -69,25 +67,24 @@ ${embedHtml}
 </body>
 </html>`;
 
-      // Blob URL: el iframe hereda el origin de la página padre,
-      // por lo que window.location.origin no es "null".
-      const blob = new Blob([docHtml], { type: 'text/html' });
-      const blobUrl = URL.createObjectURL(blob);
-
-      // Crear iframe
       const iframe = document.createElement('iframe');
-      iframe.src = blobUrl;
       iframe.style.border = 'none';
       iframe.style.width = '100%';
       iframe.style.minHeight = minHeight;
       iframe.style.display = 'block';
       iframe.style.overflow = 'hidden';
       iframe.setAttribute('scrolling', 'no');
-      iframe.setAttribute('loading', 'lazy');
 
       container.appendChild(iframe);
 
-      // Intentar auto-ajustar altura escuchando mensajes del iframe
+      // Escribir el HTML en el iframe (about:blank hereda origin del padre)
+      const doc = iframe.contentDocument || iframe.contentWindow?.document;
+      if (doc) {
+        doc.open();
+        doc.write(docHtml);
+        doc.close();
+      }
+
       const handleMessage = (e: MessageEvent) => {
         if (e.data && typeof e.data === 'object' && e.data.type === 'resize') {
           iframe.style.height = e.data.height + 'px';
@@ -97,7 +94,6 @@ ${embedHtml}
 
       return () => {
         window.removeEventListener('message', handleMessage);
-        URL.revokeObjectURL(blobUrl);
         container.innerHTML = '';
       };
     }
