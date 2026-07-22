@@ -2,20 +2,13 @@ import { useState } from 'react';
 import ImageModal from './ImageModal';
 
 interface GallerySectionProps {
-  title?: string;
-  images?: { src: string; alt: string }[];
+  title: string;
+  images: { src: string; alt: string }[];
 }
 
 export default function GallerySection({
-  title = 'Galería',
-  images = [
-    { src: 'https://picsum.photos/seed/ong1/600/400', alt: 'Actividad comunitaria 1' },
-    { src: 'https://picsum.photos/seed/ong2/600/400', alt: 'Actividad comunitaria 2' },
-    { src: 'https://picsum.photos/seed/ong3/600/400', alt: 'Actividad comunitaria 3' },
-    { src: 'https://picsum.photos/seed/ong4/600/400', alt: 'Actividad comunitaria 4' },
-    { src: 'https://picsum.photos/seed/ong5/600/400', alt: 'Actividad comunitaria 5' },
-    { src: 'https://picsum.photos/seed/ong6/600/400', alt: 'Actividad comunitaria 6' },
-  ],
+  title,
+  images,
 }: GallerySectionProps) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 

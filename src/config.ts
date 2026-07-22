@@ -33,7 +33,7 @@ export const siteConfig = {
 
   /** ── Bloque 4: Galería ── */
   gallery: {
-    title: 'Galería',
+    title: 'Nuestras actividades',
     images: [
       { src: 'https://picsum.photos/seed/ong1/600/400', alt: 'Actividad comunitaria 1' },
       { src: 'https://picsum.photos/seed/ong2/600/400', alt: 'Actividad comunitaria 2' },
@@ -56,6 +56,7 @@ export const siteConfig = {
 
   /** ── Bloque 6: Footer ── */
   footer: {
+    donaFacilUrl: 'https://donafacil.uy',
     donaFacilLogoSrc:
       'https://tutiimg.nyc3.digitaloceanspaces.com/donaruy/recursos/logo-df-gris.png',
     legalText:

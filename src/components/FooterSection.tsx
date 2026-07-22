@@ -1,15 +1,15 @@
 interface FooterSectionProps {
-  donaFacilUrl?: string;
-  donaFacilLogoSrc?: string;
-  legalText?: string;
+  donaFacilUrl: string;
+  donaFacilLogoSrc: string;
+  legalText: string;
   copyrightText?: string;
 }
 
 export default function FooterSection({
-  donaFacilUrl = 'https://donafacil.uy',
-  donaFacilLogoSrc = 'https://tutiimg.nyc3.digitaloceanspaces.com/donaruy/recursos/logo-df-gris.png',
-  legalText = 'Las donaciones son fáciles, seguras y transparentes gracias al aval y la tecnología de Doná Fácil, aliados en recaudación de fondos.\n\nSitio desarrollado por Doná Fácil.',
-  copyrightText = '© 2026 Doná Fácil. Todos los derechos reservados.',
+  donaFacilUrl,
+  donaFacilLogoSrc,
+  legalText,
+  copyrightText,
 }: FooterSectionProps) {
   return (
     <footer className="bg-white text-white py-10 px-4 rounded-[20px] md:rounded-none overflow-hidden">

@@ -1,21 +1,21 @@
 interface ContactSectionProps {
-  organizationName?: string;
-  logoSrc?: string;
-  backgroundColor?: string;
+  organizationName: string;
+  logoSrc: string;
+  backgroundColor: string;
+  phone: string;
+  address: string;
   email?: string;
-  phone?: string;
-  address?: string;
   socialLinks?: { label: string; url: string }[];
 }
 
 export default function ContactSection({
-  organizationName = 'Casa Amiga - Grupo Oncológico "Vivir Mejor"',
-  logoSrc = 'https://tutiimg.nyc3.digitaloceanspaces.com/donaruy/users/281/logo-casa-amiga.png',
-  backgroundColor = 'bg-gray-200',
-  email = '',
-  phone = '+598 4733 9077',
-  address = 'Cervantes 1035, Salto, Uruguay',
-  socialLinks = [],
+  organizationName,
+  logoSrc,
+  backgroundColor,
+  phone,
+  address,
+  email,
+  socialLinks,
 }: ContactSectionProps) {
   return (
     <section className={`${backgroundColor} text-gray-700 py-16 px-4 rounded-[20px] md:rounded-none overflow-hidden`}>
@@ -57,7 +57,7 @@ export default function ContactSection({
         </div>
 
         {/* Redes sociales */}
-        {socialLinks.length > 0 && (
+        {socialLinks && socialLinks.length > 0 && (
           <div className="flex justify-center gap-4 mt-6">
             {socialLinks.map((link, i) => (
               <a
