@@ -5,6 +5,9 @@
 // Los componentes toman sus valores de aquí, no tienen defaults fijos.
 
 export const siteConfig = {
+  /** URL del favicon (puede ser externa o local tipo /logo.svg) */
+  favicon: 'https://tutiimg.nyc3.digitaloceanspaces.com/donaruy/users/281/logo-casa-amiga.png',
+
   /** Color de títulos (hex, rgb, etc.). Generalmente = hero.backgroundColor */
   titleColor: '#00BD3D',
 
