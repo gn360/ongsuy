@@ -82,7 +82,6 @@ ${embedHtml}
       iframe.style.minHeight = minHeight;
       iframe.style.display = 'block';
       iframe.style.overflow = 'hidden';
-      iframe.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-forms allow-popups');
       iframe.setAttribute('scrolling', 'no');
       iframe.setAttribute('loading', 'lazy');
 
