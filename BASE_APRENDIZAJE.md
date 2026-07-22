@@ -52,11 +52,49 @@ Los bloques con color de fondo (Hero, Gallery, Contact, Footer) usan `overflow-h
 - Las imágenes de galería usan `loading="lazy"` para lazy loading nativo
 - El IframeSection usa `useRef` + `useEffect` para inyectar scripts dinámicamente
 
+## Flujo de trabajo: una rama por ONG
+
+`main` es la plantilla base genérica. Cada ONG tiene su propia rama (ej: `casa-amiga`, `ongsuy`) que personaliza `App.tsx` con sus datos, colores, logo e iframe de donación.
+
+En el droplet, cada rama se clona en `/var/www/ongs/<nombre-de-rama>/` y se sirve como `<nombre-de-rama>.ongs.uy`.
+
+### Nueva ONG en el droplet
+
+```bash
+cd /var/www/ongs
+git clone https://github.com/gn360/ongsuy.git <nombre-de-rama>
+cd <nombre-de-rama>
+git checkout <nombre-de-rama>
+npm run setup
+```
+
+### Actualizar una ONG existente
+
+```bash
+cd /var/www/ongs/<nombre-de-rama>
+npm run deploy
+```
+
+### Actualizar la plantilla base desde main
+
+Si mejorás la base y querés que una rama herede esos cambios:
+
+```bash
+cd /var/www/ongs/<nombre-de-rama>
+git fetch origin
+git merge origin/main
+npm run build
+```
+
+Resolver conflictos en `App.tsx` si ambas ramas lo modificaron.
+
 ## Comandos
 
 ```bash
 npm run dev      # servidor de desarrollo en :5173
-npm run build    # tsc -b && vite build
+npm run build    # tsc -b && vite build + copia a raíz (postbuild)
+npm run setup    # npm install + build (primer deploy en droplet)
+npm run deploy   # git pull de la rama actual + install + build
 npm run preview  # previsualizar build
 ```
 
