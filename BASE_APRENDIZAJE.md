@@ -54,17 +54,18 @@ Los bloques con color de fondo (Hero, Gallery, Contact, Footer) usan `overflow-h
 
 ## Flujo de trabajo: una rama por ONG
 
-`main` es la plantilla base genérica. Cada ONG tiene su propia rama (ej: `casa-amiga`, `ongsuy`) que personaliza `App.tsx` con sus datos, colores, logo e iframe de donación.
+`main` es la plantilla base genérica. Cada ONG tiene su propia rama (ej: `casa-amiga`) donde se personaliza `App.tsx` con sus datos, colores, logo e iframe de donación.
 
-En el droplet, cada rama se clona en `/var/www/ongs/<nombre-de-rama>/` y se sirve como `<nombre-de-rama>.ongs.uy`.
+En el droplet, **no existe una carpeta para `main`**. Cada ONG tiene su carpeta en `/var/www/ongs/<nombre-de-rama>/` con **solo su rama**, y se sirve como `<nombre-de-rama>.ongs.uy`.
 
 ### Nueva ONG en el droplet
 
+Se clona únicamente la rama que interesa, sin `main` ni otras ramas:
+
 ```bash
 cd /var/www/ongs
-git clone https://github.com/gn360/ongsuy.git <nombre-de-rama>
+git clone --single-branch --branch <nombre-de-rama> https://github.com/gn360/ongsuy.git <nombre-de-rama>
 cd <nombre-de-rama>
-git checkout <nombre-de-rama>
 npm run setup
 ```
 
@@ -75,13 +76,15 @@ cd /var/www/ongs/<nombre-de-rama>
 npm run deploy
 ```
 
-### Actualizar la plantilla base desde main
+El script `deploy` hace `git pull origin $(git branch --show-current)` así que siempre actualiza la rama correcta.
 
-Si mejorás la base y querés que una rama herede esos cambios:
+### Actualizar la plantilla base en una ONG
+
+Si mejorás `main` y querés que una ONG herede esos cambios:
 
 ```bash
 cd /var/www/ongs/<nombre-de-rama>
-git fetch origin
+git fetch origin main
 git merge origin/main
 npm run build
 ```
