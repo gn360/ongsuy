@@ -3,8 +3,8 @@ import { useEffect, useRef } from 'react';
 interface IframeSectionProps {
   /**
    * HTML completo para embeber contenido de terceros.
-   * Incluye divs, links CSS, y scripts con atributos (data-slug, data-sku, etc.).
-   * Los scripts se extraen y ejecutan como elementos reales para que funcionen.
+   * Se renderiza dentro de un <iframe> con srcdoc para que los scripts
+   * se ejecuten correctamente (document.currentScript funciona).
    *
    * Ejemplo (Doná Fácil):
    * `<div id="df-donation-form"></div>
@@ -12,7 +12,7 @@ interface IframeSectionProps {
    *  <script src="https://donafacil.uy/embed/donation-form.js" data-slug="..." data-sku="..."></script>`
    */
   embedHtml?: string;
-  /** @deprecated Usar embedHtml. Script simple a inyectar (sin div ni link). */
+  /** @deprecated Usar embedHtml. Script simple a inyectar sin iframe. */
   scriptContent?: string;
   /** Placeholder cuando no hay embed ni script */
   fallbackHtml?: string;
@@ -24,7 +24,7 @@ export default function IframeSection({
   embedHtml,
   scriptContent,
   fallbackHtml,
-  minHeight = '500px',
+  minHeight = '650px',
 }: IframeSectionProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -32,10 +32,7 @@ export default function IframeSection({
     const container = containerRef.current;
     if (!container) return;
 
-    const html = embedHtml || scriptContent;
-    if (!html) return;
-
-    // Modo legacy: solo script, inyectar directamente
+    // Modo legacy: script inline simple
     if (scriptContent && !embedHtml) {
       container.innerHTML = '';
       const script = document.createElement('script');
@@ -44,32 +41,60 @@ export default function IframeSection({
       return;
     }
 
-    // Modo embedHtml: parsear, inyectar HTML no-script, luego ejecutar scripts
-    container.innerHTML = '';
+    // Modo embedHtml: crear iframe con srcdoc
+    if (embedHtml) {
+      // Limpiar contenedor
+      container.innerHTML = '';
 
-    const temp = document.createElement('div');
-    temp.innerHTML = embedHtml!;
+      // Crear iframe
+      const iframe = document.createElement('iframe');
+      iframe.style.border = 'none';
+      iframe.style.width = '100%';
+      iframe.style.minHeight = minHeight;
+      iframe.style.display = 'block';
+      iframe.style.overflow = 'hidden';
+      iframe.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-forms allow-popups');
+      iframe.setAttribute('scrolling', 'no');
+      iframe.setAttribute('loading', 'lazy');
 
-    // Extraer y eliminar scripts del HTML parseado
-    const oldScripts = temp.querySelectorAll('script');
-    const newScripts: HTMLScriptElement[] = [];
+      // HTML completo dentro del iframe con estilos base
+      const docHtml = `<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Inter, system-ui, -apple-system, sans-serif;
+      background: transparent;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+${embedHtml}
+</body>
+</html>`;
 
-    oldScripts.forEach((old) => {
-      const s = document.createElement('script');
-      Array.from(old.attributes).forEach((attr) =>
-        s.setAttribute(attr.name, attr.value),
-      );
-      if (old.textContent) s.textContent = old.textContent;
-      newScripts.push(s);
-      old.remove();
-    });
+      iframe.srcdoc = docHtml;
+      container.appendChild(iframe);
 
-    // Inyectar HTML sin scripts (divs, links, etc.)
-    container.innerHTML = temp.innerHTML;
+      // Intentar auto-ajustar altura escuchando mensajes del iframe
+      const handleMessage = (e: MessageEvent) => {
+        if (e.data && typeof e.data === 'object' && e.data.type === 'resize') {
+          iframe.style.height = e.data.height + 'px';
+        }
+      };
+      window.addEventListener('message', handleMessage);
 
-    // Ejecutar scripts como elementos reales
-    newScripts.forEach((s) => container.appendChild(s));
-  }, [embedHtml, scriptContent]);
+      return () => {
+        window.removeEventListener('message', handleMessage);
+      };
+    }
+  }, [embedHtml, scriptContent, minHeight]);
 
   const defaultFallback = `
     <div class="flex items-center justify-center w-full h-full bg-gray-100 rounded-xl border-2 border-dashed border-gray-300">
@@ -92,7 +117,7 @@ export default function IframeSection({
       <div
         ref={containerRef}
         className="mx-auto w-full max-w-4xl rounded-xl overflow-hidden"
-        style={{ minHeight }}
+        style={{ minHeight: showFallback ? minHeight : undefined }}
         dangerouslySetInnerHTML={{
           __html: showFallback ? (fallbackHtml ?? defaultFallback) : '',
         }}
