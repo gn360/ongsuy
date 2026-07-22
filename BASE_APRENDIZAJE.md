@@ -121,3 +121,9 @@ Para adaptar la landing a una ONG específica, editar `src/App.tsx` pasando prop
 3. **Tailwind puro** — sin componentes de UI library, para mantener el bundle liviano
 4. **TypeScript estricto** — `noUnusedLocals`, `noUnusedParameters` activados
 5. **Mobile-first con md: breakpoint** — los estilos base son mobile, los `md:` los sobreescriben en desktop
+
+## Hallazgos de producción
+
+- Para embeds de terceros (ej. Dona Facil), evitar dejar `<script>` y `<link>` directamente en el JSX de `App.tsx`.
+- Si el proveedor espera `document.currentScript` o atributos `data-*`, montar el embed mediante `IframeSection` (inyeccion y clonado de scripts en `useEffect`) para asegurar ejecucion consistente en produccion.
+- Sintoma tipico cuando falla el embed: el contenedor queda solo como `<div id="df-donation-form"></div>` sin render del formulario.

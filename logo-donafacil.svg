@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 80" fill="none">
+  <text x="20" y="52" font-family="Inter, system-ui, sans-serif" font-size="36" font-weight="800" fill="white">Doná</text>
+  <text x="150" y="52" font-family="Inter, system-ui, sans-serif" font-size="36" font-weight="300" fill="#93c5fd">Fácil</text>
+  <rect x="260" y="22" width="28" height="28" rx="8" fill="#3b82f6"/>
+  <path d="M274 35C274 31 270 28 266 30C262 32 262 38 266 41L274 48L282 41C286 38 286 32 282 30C278 28 274 31 274 35Z" fill="white"/>
+</svg>
