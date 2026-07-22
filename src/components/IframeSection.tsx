@@ -52,32 +52,22 @@ export default function IframeSection({
       const temp = document.createElement('div');
       temp.innerHTML = embedHtml;
 
-      // Extraer scripts y copiar sus atributos
+      // Extraer scripts y clonarlos (preserva atributos y ejecuta correctamente)
       const oldScripts = temp.querySelectorAll('script');
-      const newScripts: HTMLScriptElement[] = [];
+      const clones: HTMLScriptElement[] = [];
 
       oldScripts.forEach((old) => {
-        const s = document.createElement('script');
-        // Copiar TODOS los atributos (src, data-slug, data-sku, data-tab, etc.)
-        for (let i = 0; i < old.attributes.length; i++) {
-          const attr = old.attributes[i];
-          s.setAttribute(attr.name, attr.value);
-        }
-        // Copiar contenido inline si existe
-        if (old.textContent) {
-          s.textContent = old.textContent;
-        }
-        newScripts.push(s);
-        old.remove(); // quitar del HTML parseado
+        const clone = old.cloneNode(true) as HTMLScriptElement;
+        clones.push(clone);
+        old.remove();
       });
 
       // Inyectar el HTML sin scripts (div, link, etc.)
       container.innerHTML = temp.innerHTML;
 
-      // Appender scripts reales al DOM — se ejecutarán con
-      // document.currentScript apuntando a cada elemento,
-      // y window.location.origin será el de la página real.
-      newScripts.forEach((s) => container.appendChild(s));
+      // Appender clones al DOM — el navegador los ejecuta como scripts nuevos,
+      // document.currentScript apunta al clon, y sus data-* están intactos.
+      clones.forEach((s) => container.appendChild(s));
 
       // Listener para auto-ajuste de altura vía postMessage
       const handleMessage = (e: MessageEvent) => {
