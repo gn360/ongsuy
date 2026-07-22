@@ -3,8 +3,9 @@ import { useEffect, useRef } from 'react';
 interface IframeSectionProps {
   /**
    * HTML completo para embeber contenido de terceros.
-   * Se renderiza dentro de un <iframe> con srcdoc para que los scripts
-   * se ejecuten correctamente (document.currentScript funciona).
+   * Se renderiza dentro de un <iframe> con Blob URL para que los scripts
+   * se ejecuten correctamente y el iframe herede el origin de la página
+   * (necesario para widgets que usan window.location.origin).
    *
    * Ejemplo (Doná Fácil):
    * `<div id="df-donation-form"></div>
@@ -41,21 +42,10 @@ export default function IframeSection({
       return;
     }
 
-    // Modo embedHtml: crear iframe con srcdoc
+    // Modo embedHtml: crear iframe con Blob URL (hereda origin de la página)
     if (embedHtml) {
       // Limpiar contenedor
       container.innerHTML = '';
-
-      // Crear iframe
-      const iframe = document.createElement('iframe');
-      iframe.style.border = 'none';
-      iframe.style.width = '100%';
-      iframe.style.minHeight = minHeight;
-      iframe.style.display = 'block';
-      iframe.style.overflow = 'hidden';
-      iframe.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-forms allow-popups');
-      iframe.setAttribute('scrolling', 'no');
-      iframe.setAttribute('loading', 'lazy');
 
       // HTML completo dentro del iframe con estilos base
       const docHtml = `<!DOCTYPE html>
@@ -79,7 +69,23 @@ ${embedHtml}
 </body>
 </html>`;
 
-      iframe.srcdoc = docHtml;
+      // Blob URL: el iframe hereda el origin de la página padre,
+      // por lo que window.location.origin no es "null".
+      const blob = new Blob([docHtml], { type: 'text/html' });
+      const blobUrl = URL.createObjectURL(blob);
+
+      // Crear iframe
+      const iframe = document.createElement('iframe');
+      iframe.src = blobUrl;
+      iframe.style.border = 'none';
+      iframe.style.width = '100%';
+      iframe.style.minHeight = minHeight;
+      iframe.style.display = 'block';
+      iframe.style.overflow = 'hidden';
+      iframe.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-forms allow-popups');
+      iframe.setAttribute('scrolling', 'no');
+      iframe.setAttribute('loading', 'lazy');
+
       container.appendChild(iframe);
 
       // Intentar auto-ajustar altura escuchando mensajes del iframe
@@ -92,6 +98,8 @@ ${embedHtml}
 
       return () => {
         window.removeEventListener('message', handleMessage);
+        URL.revokeObjectURL(blobUrl);
+        container.innerHTML = '';
       };
     }
   }, [embedHtml, scriptContent, minHeight]);
