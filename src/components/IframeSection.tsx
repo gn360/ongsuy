@@ -15,6 +15,7 @@ interface IframeSectionProps {
    *  <script src="https://donafacil.uy/embed/donation-form.js" data-slug="..." data-sku="..."></script>`
    */
   title?: string;
+  titleColor?: string;
   embedHtml?: string;
   /** @deprecated Usar embedHtml. Script simple a inyectar sin procesar. */
   scriptContent?: string;
@@ -26,6 +27,7 @@ interface IframeSectionProps {
 
 export default function IframeSection({
   title,
+  titleColor,
   embedHtml,
   scriptContent,
   fallbackHtml,
@@ -127,7 +129,7 @@ export default function IframeSection({
   return (
     <section className="py-12 px-4 rounded-[20px] md:rounded-none bg-white md:bg-transparent">
       {title && (
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6 text-center">
+        <h2 style={titleColor ? { color: titleColor } : undefined} className="text-2xl md:text-3xl font-bold text-gray-800 mb-6 text-center">
           {title}
         </h2>
       )}

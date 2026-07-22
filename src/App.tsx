@@ -7,14 +7,14 @@ import ContactSection from './components/ContactSection';
 import FooterSection from './components/FooterSection';
 
 export default function App() {
-  const { hero, text, widget, gallery, contact, footer } = siteConfig;
+  const { titleColor, hero, text, widget, gallery, contact, footer } = siteConfig;
 
   return (
     <div className="min-h-screen flex flex-col gap-3 md:gap-0 px-3 md:px-0 py-3 md:py-0 bg-gray-100 md:bg-transparent">
       <HeroSection {...hero} />
       <TextSection paragraphs={text.paragraphs} />
-      <IframeSection title={widget.title} embedHtml={widget.embedHtml} />
-      <GallerySection title={gallery.title} images={gallery.images} titleColor={gallery.titleColor} />
+      <IframeSection title={widget.title} titleColor={titleColor} embedHtml={widget.embedHtml} />
+      <GallerySection title={gallery.title} images={gallery.images} titleColor={titleColor} />
       <ContactSection {...contact} />
       <FooterSection {...footer} />
     </div>

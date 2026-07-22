@@ -5,6 +5,9 @@
 // Los componentes toman sus valores de aquí, no tienen defaults fijos.
 
 export const siteConfig = {
+  /** Color de títulos (hex, rgb, etc.). Generalmente = hero.backgroundColor */
+  titleColor: '#00BD3D',
+
   /** ── Bloque 1: Hero (fondo de color + logo + nombre) ── */
   hero: {
     organizationName: 'Casa Amiga',
@@ -35,8 +38,6 @@ export const siteConfig = {
   /** ── Bloque 4: Galería ── */
   gallery: {
     title: 'Nuestras actividades',
-    /** Color del título (hex, rgb, etc.). Usar el mismo que hero.backgroundColor */
-    titleColor: '#00BD3D',
     images: [
       { src: 'https://picsum.photos/seed/ong1/600/400', alt: 'Actividad comunitaria 1' },
       { src: 'https://picsum.photos/seed/ong2/600/400', alt: 'Actividad comunitaria 2' },
