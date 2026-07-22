@@ -6,13 +6,13 @@ interface FooterSectionProps {
 }
 
 export default function FooterSection({
-  donaFacilUrl = 'https://donafacil.org',
-  donaFacilLogoSrc = '/logo-donafacil.svg',
-  legalText = 'Doná Fácil es una plataforma que conecta donantes con organizaciones sin fines de lucro, facilitando las donaciones de forma segura y transparente. Las donaciones realizadas a través de esta plataforma pueden ser deducibles de impuestos según la legislación vigente.',
+  donaFacilUrl = 'https://donafacil.uy',
+  donaFacilLogoSrc = 'https://tutiimg.nyc3.digitaloceanspaces.com/donaruy/recursos/logo-df-gris.png',
+  legalText = 'Las donaciones son fáciles, seguras y transparentes gracias al aval y la tecnología de Doná Fácil, aliados en recaudación de fondos.\n\nSitio desarrollado por Doná Fácil.',
   copyrightText = '© 2026 Doná Fácil. Todos los derechos reservados.',
 }: FooterSectionProps) {
   return (
-    <footer className="bg-gray-900 text-white py-10 px-4 rounded-[20px] md:rounded-none overflow-hidden">
+    <footer className="bg-white text-white py-10 px-4 rounded-[20px] md:rounded-none overflow-hidden">
       <div className="max-w-lg mx-auto text-center">
         {/* Logo Doná Fácil */}
         <a

@@ -35,7 +35,7 @@ export default function GallerySection({
   };
 
   return (
-    <section className="py-16 px-4 bg-gray-50 rounded-[20px] md:rounded-none overflow-hidden">
+    <section className="py-16 px-4 bg-white rounded-[20px] md:rounded-none overflow-hidden">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-10 text-center">
           {title}

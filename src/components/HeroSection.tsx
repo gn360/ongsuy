@@ -6,14 +6,15 @@ interface HeroSectionProps {
 }
 
 export default function HeroSection({
-  organizationName = 'Nombre de la ONG',
-  logoSrc = '/logo.svg',
-  backgroundColor = 'bg-primary-700',
-  tagline = 'Comprometidos con un mundo mejor',
+  organizationName = 'Casa Amiga',
+  logoSrc = 'https://tutiimg.nyc3.digitaloceanspaces.com/donaruy/users/281/logo-casa-amiga.png',
+  backgroundColor = '#00BD3D',
+  tagline = 'Grupo Oncológico "Vivir Mejor"',
 }: HeroSectionProps) {
   return (
     <section
-      className={`${backgroundColor} text-white py-20 px-4 flex flex-col items-center justify-center text-center min-h-[50vh] rounded-[20px] md:rounded-none overflow-hidden`}
+      style={{ backgroundColor }}
+      className={`text-white py-20 px-4 flex flex-col items-center justify-center text-center min-h-[50vh] rounded-[20px] md:rounded-none overflow-hidden`}
     >
       <img
         src={logoSrc}

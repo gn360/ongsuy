@@ -97,7 +97,7 @@ ${embedHtml}
   }, [embedHtml, scriptContent, minHeight]);
 
   const defaultFallback = `
-    <div class="flex items-center justify-center w-full h-full bg-gray-100 rounded-xl border-2 border-dashed border-gray-300">
+    <div class="flex items-center justify-center w-full h-full bg-white rounded-xl border-2 border-dashed border-gray-300">
       <div class="text-center text-gray-400 p-8">
         <svg class="w-16 h-16 mx-auto mb-4 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"

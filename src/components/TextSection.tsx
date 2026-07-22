@@ -7,8 +7,9 @@ interface TextSectionProps {
 export default function TextSection({
   title = 'Nuestra Misión',
   paragraphs = [
-    'Somos una organización sin fines de lucro dedicada a transformar vidas a través de la solidaridad y el trabajo comunitario. Creemos en el poder de la colaboración para generar cambios reales y sostenibles.',
-    'Desde nuestra fundación, hemos impactado positivamente a miles de personas mediante programas de educación, salud y desarrollo social. Cada donación, cada voluntario y cada proyecto nos acerca un paso más a nuestra visión.',
+    'Grupo Oncologico Vivir Mejor- Casa Amiga fue creado por un grupo de pacientes oncológicos que vieron la necesidad que existía de contar con un lugar físico para alojar a pacientes oncológicos o familiares que llegan desde distintos puntos del país, a realizarse tratamientos o estudios médicos.',
+    'Estos pacientes generalmente no cuentan con los recursos necesarios para afrontar la situación, lo que sumado a la angustia y preocupación por su salud, hace que los casos sean aun mas complejos.',
+    'Casa Amiga brinda de forma gratuita estadía, alimentación, abrigo, artículos de higiene y todo lo necesario para que tanto el paciente como su entorno familiar puedan enfocarse en su recuperación.',
   ],
   alignment = 'center',
 }: TextSectionProps) {
@@ -20,7 +21,7 @@ export default function TextSection({
         : 'text-center';
 
   return (
-    <section className="py-16 px-4 max-w-3xl mx-auto rounded-[20px] md:rounded-none bg-white md:bg-transparent">
+    <section className="py-16 px-4 max-w-3xl mx-auto rounded-[20px] md:rounded-none bg-gray-200 md:bg-transparent">
       <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-8 text-center">
         {title}
       </h2>

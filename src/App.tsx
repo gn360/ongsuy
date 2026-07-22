@@ -13,7 +13,7 @@ export default function App() {
       <IframeSection
         embedHtml={`<div id="df-donation-form"></div>
 <link rel="stylesheet" href="https://donafacil.uy/embed/donation-form.css">
-<script src="https://donafacil.uy/embed/donation-form.js" data-slug="amigos-unidos-por-los-animales-20251009112959" data-sku="2YI8QGWF"></script>`}
+<script src="https://donafacil.uy/embed/donation-form.js" data-slug="casa-amiga-grupo-oncologico-vivir-mejor-20251009113226" data-sku="GHR2JRGZ"></script>`}
       />
       <GallerySection />
       <ContactSection />

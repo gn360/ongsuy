@@ -9,16 +9,16 @@ interface ContactSectionProps {
 }
 
 export default function ContactSection({
-  organizationName = 'Nombre de la ONG',
-  logoSrc = '/logo.svg',
-  backgroundColor = 'bg-primary-700',
-  email = 'contacto@ong-ejemplo.org',
-  phone = '+598 99 123 456',
-  address = 'Av. Ejemplo 1234, Montevideo, Uruguay',
+  organizationName = 'Casa Amiga - Grupo Oncológico "Vivir Mejor"',
+  logoSrc = 'https://tutiimg.nyc3.digitaloceanspaces.com/donaruy/users/281/logo-casa-amiga.png',
+  backgroundColor = 'bg-gray-200',
+  email = null,
+  phone = '+598 4733 9077',
+  address = 'Cervantes 1035, Salto, Uruguay',
   socialLinks = [],
 }: ContactSectionProps) {
   return (
-    <section className={`${backgroundColor} text-white py-16 px-4 rounded-[20px] md:rounded-none overflow-hidden`}>
+    <section className={`${backgroundColor} text-gray-700 py-16 px-4 rounded-[20px] md:rounded-none overflow-hidden`}>
       <div className="max-w-lg mx-auto text-center">
         {/* Logo */}
         <img
@@ -31,10 +31,10 @@ export default function ContactSection({
         <h2 className="text-2xl md:text-3xl font-bold mb-6">{organizationName}</h2>
 
         {/* Datos de contacto */}
-        <div className="space-y-3 text-base md:text-lg text-white/85">
+        <div className="space-y-3 text-base md:text-lg text-gray-700">
           {email && (
             <p>
-              <span className="font-semibold text-white">Email: </span>
+              <span className="font-semibold text-gray-700">Email: </span>
               <a href={`mailto:${email}`} className="hover:underline">
                 {email}
               </a>
@@ -42,7 +42,7 @@ export default function ContactSection({
           )}
           {phone && (
             <p>
-              <span className="font-semibold text-white">Teléfono: </span>
+              <span className="font-semibold text-gray-700">Teléfono: </span>
               <a href={`tel:${phone.replace(/\s/g, '')}`} className="hover:underline">
                 {phone}
               </a>
@@ -50,7 +50,7 @@ export default function ContactSection({
           )}
           {address && (
             <p>
-              <span className="font-semibold text-white">Dirección: </span>
+              <span className="font-semibold text-gray-700">Dirección: </span>
               {address}
             </p>
           )}
