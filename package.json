@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "postbuild": "cp -r dist/* . && echo '✓ Build copiado a la raíz del subdominio'",
-    "deploy": "git pull && npm install && npm run build",
+    "setup": "npm install && npm run build",
+    "deploy": "git pull origin $(git branch --show-current) && npm install && npm run build",
     "preview": "vite preview"
   },
   "dependencies": {
