@@ -52,22 +52,43 @@ export default function IframeSection({
       const temp = document.createElement('div');
       temp.innerHTML = embedHtml;
 
-      // Extraer scripts y clonarlos (preserva atributos y ejecuta correctamente)
+      // Extraer scripts y recrearlos para asegurar ejecucion real en el DOM.
+      // cloneNode en <script> puede no ejecutar en algunos navegadores/escenarios.
       const oldScripts = temp.querySelectorAll('script');
-      const clones: HTMLScriptElement[] = [];
+      const recreatedScripts: HTMLScriptElement[] = [];
 
       oldScripts.forEach((old) => {
-        const clone = old.cloneNode(true) as HTMLScriptElement;
-        clones.push(clone);
+        const recreated = document.createElement('script');
+
+        Array.from(old.attributes).forEach((attr) => {
+          recreated.setAttribute(attr.name, attr.value);
+        });
+
+        if (old.textContent) {
+          recreated.textContent = old.textContent;
+        }
+
+        recreated.onload = () => {
+          if (recreated.src) {
+            console.info('[IframeSection] Script cargado:', recreated.src);
+          }
+        };
+
+        recreated.onerror = () => {
+          if (recreated.src) {
+            console.error('[IframeSection] Error cargando script:', recreated.src);
+          }
+        };
+
+        recreatedScripts.push(recreated);
         old.remove();
       });
 
       // Inyectar el HTML sin scripts (div, link, etc.)
       container.innerHTML = temp.innerHTML;
 
-      // Appender clones al DOM — el navegador los ejecuta como scripts nuevos,
-      // document.currentScript apunta al clon, y sus data-* están intactos.
-      clones.forEach((s) => container.appendChild(s));
+      // Al append de scripts recreados, el navegador los ejecuta como nuevos.
+      recreatedScripts.forEach((s) => container.appendChild(s));
 
       // Listener para auto-ajuste de altura vía postMessage
       const handleMessage = (e: MessageEvent) => {
