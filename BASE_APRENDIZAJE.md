@@ -127,3 +127,5 @@ Para adaptar la landing a una ONG específica, editar `src/App.tsx` pasando prop
 - Para embeds de terceros (ej. Dona Facil), evitar dejar `<script>` y `<link>` directamente en el JSX de `App.tsx`.
 - Si el proveedor espera `document.currentScript` o atributos `data-*`, montar el embed mediante `IframeSection` (inyeccion y clonado de scripts en `useEffect`) para asegurar ejecucion consistente en produccion.
 - Sintoma tipico cuando falla el embed: el contenedor queda solo como `<div id="df-donation-form"></div>` sin render del formulario.
+- No commitear `index.html` generado por `dist` (con `/assets/*.js`), porque Vite necesita el `index.html` fuente con `<script type="module" src="/src/main.tsx"></script>` para compilar.
+- Se agrego `prebuild` en `package.json` para restaurar automaticamente `index.html` desde `index.vite.html` antes de cada build.

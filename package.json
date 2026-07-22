@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "prebuild": "cp index.vite.html index.html",
     "build": "tsc -b && vite build",
     "postbuild": "cp -r dist/* . && echo '✓ Build copiado a la raíz del subdominio'",
     "setup": "npm install && npm run build",
