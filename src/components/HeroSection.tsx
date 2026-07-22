@@ -17,11 +17,13 @@ export default function HeroSection({
       className="text-white py-20 px-4 flex flex-col items-center justify-center text-center min-h-[50vh] rounded-[20px] md:rounded-none overflow-hidden"
     >
       {logoSrc && (
-        <img
-          src={logoSrc}
-          alt={`Logo ${organizationName}`}
-          className="w-28 h-28 md:w-36 md:h-36 object-contain mb-6 drop-shadow-lg rounded-lg"
-        />
+        <div className="rounded-lg overflow-hidden inline-block mb-6">
+          <img
+            src={logoSrc}
+            alt={`Logo ${organizationName}`}
+            className="w-28 h-28 md:w-36 md:h-36 object-contain drop-shadow-lg"
+          />
+        </div>
       )}
       <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight mb-3">
         {organizationName}

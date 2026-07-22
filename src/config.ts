@@ -57,8 +57,9 @@ export const siteConfig = {
     organizationName: 'FUNDACIÓN TROMPO AZUL',
     logoSrc: logoUrl,
     backgroundColor: 'bg-gray-200',
-    phone: '+598 4733 9077',
-    address: 'Cervantes 1035, Salto, Uruguay',
+    phone: '+598 91 944 470',
+    email: 'info@trompoazul.org',
+    address: 'Av. Pérez Butler, M9622 S11 El Pinar, Canelones, Uruguay',
   },
 
   /** ── Bloque 6: Footer ── */

@@ -21,11 +21,13 @@ export default function ContactSection({
     <section className={`${backgroundColor} text-gray-700 py-16 px-4 rounded-[20px] md:rounded-none overflow-hidden`}>
       <div className="max-w-lg mx-auto text-center">
         {/* Logo */}
-        <img
-          src={logoSrc}
-          alt={`Logo ${organizationName}`}
-          className="w-20 h-20 md:w-24 md:h-24 object-contain mx-auto mb-5 drop-shadow-md rounded-lg"
-        />
+        <div className="rounded-lg overflow-hidden inline-block mx-auto mb-5">
+          <img
+            src={logoSrc}
+            alt={`Logo ${organizationName}`}
+            className="w-20 h-20 md:w-24 md:h-24 object-contain drop-shadow-md"
+          />
+        </div>
 
         {/* Nombre */}
         <h2 className="text-2xl md:text-3xl font-bold mb-6">{organizationName}</h2>
