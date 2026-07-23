@@ -3,21 +3,22 @@
 // ============================================================
 // Editar solo este archivo para personalizar la landing de cada ONG.
 // Los componentes toman sus valores de aquí, no tienen defaults fijos.
-
+const logoUrl = 'https://tutiimg.nyc3.digitaloceanspaces.com/donaruy/users/281/logo-casa-amiga.png';
+const organizationName = 'Casa Amiga - Grupo Oncológico "Vivir Mejor"';
+const color = '#00BD3D';
 export const siteConfig = {
   /** URL del favicon (puede ser externa o local tipo /logo.svg) */
-  favicon: 'https://tutiimg.nyc3.digitaloceanspaces.com/donaruy/users/281/logo-casa-amiga.png',
+  favicon: logoUrl,
 
   /** Color de títulos (hex, rgb, etc.). Generalmente = hero.backgroundColor */
-  titleColor: '#00BD3D',
+  titleColor: color,
 
   /** ── Bloque 1: Hero (fondo de color + logo + nombre) ── */
   hero: {
     organizationName: 'Casa Amiga',
-    logoSrc:
-      'https://tutiimg.nyc3.digitaloceanspaces.com/donaruy/users/281/logo-casa-amiga.png',
+    logoSrc: logoUrl,
     /** Color de fondo (hex, rgb, hsl o clase Tailwind tipo "bg-gray-200") */
-    backgroundColor: '#00BD3D',
+    backgroundColor: color,
     tagline: 'Grupo Oncológico "Vivir Mejor"',
   },
 
@@ -32,6 +33,7 @@ export const siteConfig = {
 
   /** ── Bloque 3: Widget / Iframe ── */
   widget: {
+    dflink: 'https://donafacil.uy/organizadores/casa-amiga',
     title: 'Colaborá con nosotros',
     embedHtml: `<div id="df-donation-form"></div>
 <link rel="stylesheet" href="https://donafacil.uy/embed/donation-form.css">
@@ -42,20 +44,20 @@ export const siteConfig = {
   gallery: {
     title: 'Nuestras actividades',
     images: [
-      { src: 'https://tutiimg.nyc3.digitaloceanspaces.com/ongsuy/casa-amiga/images-01.jpg', alt: 'Casa Amiga' },
-      { src: 'https://tutiimg.nyc3.digitaloceanspaces.com/ongsuy/casa-amiga/images-02.jpg', alt: 'Casa Amiga' },
-      { src: 'https://tutiimg.nyc3.digitaloceanspaces.com/ongsuy/casa-amiga/images-03.jpg', alt: 'Casa Amiga' },
-      { src: 'https://tutiimg.nyc3.digitaloceanspaces.com/ongsuy/casa-amiga/images-04.jpg', alt: 'Casa Amiga' },
-      { src: 'https://tutiimg.nyc3.digitaloceanspaces.com/ongsuy/casa-amiga/images-05.jpg', alt: 'Casa Amiga' },
-      { src: 'https://tutiimg.nyc3.digitaloceanspaces.com/ongsuy/casa-amiga/images-06.jpg', alt: 'Casa Amiga' },
+      { src: 'https://tutiimg.nyc3.digitaloceanspaces.com/ongsuy/casa-amiga/images-01.jpg', alt: organizationName },
+      { src: 'https://tutiimg.nyc3.digitaloceanspaces.com/ongsuy/casa-amiga/images-02.jpg', alt: organizationName },
+      { src: 'https://tutiimg.nyc3.digitaloceanspaces.com/ongsuy/casa-amiga/images-03.jpg', alt: organizationName },
+      { src: 'https://tutiimg.nyc3.digitaloceanspaces.com/ongsuy/casa-amiga/images-04.jpg', alt: organizationName },
+      { src: 'https://tutiimg.nyc3.digitaloceanspaces.com/ongsuy/casa-amiga/images-05.jpg', alt: organizationName },
+      { src: 'https://tutiimg.nyc3.digitaloceanspaces.com/ongsuy/casa-amiga/images-06.jpg', alt: organizationName },
     ],
   },
 
   /** ── Bloque 5: Contacto ── */
   contact: {
-    organizationName: 'Casa Amiga - Grupo Oncológico "Vivir Mejor"',
+    organizationName: organizationName,
     logoSrc:
-      'https://tutiimg.nyc3.digitaloceanspaces.com/donaruy/users/281/logo-casa-amiga.png',
+      logoUrl,
     backgroundColor: 'bg-gray-200',
     phone: '+598 4733 9077',
     address: 'Cervantes 1035, Salto, Uruguay',
