@@ -23,6 +23,7 @@ interface IframeSectionProps {
   fallbackHtml?: string;
   /** Altura mínima del contenedor */
   minHeight?: string;
+  dflink?: string;
 }
 
 export default function IframeSection({
