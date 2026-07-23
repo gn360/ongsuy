@@ -4,6 +4,7 @@
 // Editar solo este archivo para personalizar la landing de cada ONG.
 // Los componentes toman sus valores de aquí, no tienen defaults fijos.
 const logoUrl = 'https://tutiimg.nyc3.digitaloceanspaces.com/donaruy/users/110/1pubJAN3ubXDRmTkaVKmYQKKLegfjm76aZLvzgqe.webp';
+const organizationName = 'MUCHO BICHO';
 export const siteConfig = {
   /** URL del favicon (puede ser externa o local tipo /logo.svg) */
   favicon: logoUrl,
@@ -13,7 +14,7 @@ export const siteConfig = {
 
   /** ── Bloque 1: Hero (fondo de color + logo + nombre) ── */
   hero: {
-    organizationName: 'MUCHO BICHO',
+    organizationName: organizationName,
     logoSrc:
       logoUrl,
     /** Color de fondo (hex, rgb, hsl o clase Tailwind tipo "bg-gray-200") */
@@ -31,6 +32,7 @@ export const siteConfig = {
 
   /** ── Bloque 3: Widget / Iframe ── */
   widget: {
+    dflink: 'https://donafacil.uy/organizadores/mucho-bicho-tacuarembo-1',
     title: 'Colaborá con nosotros',
     embedHtml: `<div id="df-donation-form"></div>
             <link rel="stylesheet" href="https://donafacil.uy/embed/donation-form.css">
@@ -42,18 +44,18 @@ export const siteConfig = {
   gallery: {
     title: 'Nuestras actividades',
     images: [
-      { src: 'https://picsum.photos/seed/ong1/600/400', alt: 'Actividad comunitaria 1' },
-      { src: 'https://picsum.photos/seed/ong2/600/400', alt: 'Actividad comunitaria 2' },
-      { src: 'https://picsum.photos/seed/ong3/600/400', alt: 'Actividad comunitaria 3' },
-      { src: 'https://picsum.photos/seed/ong4/600/400', alt: 'Actividad comunitaria 4' },
-      { src: 'https://picsum.photos/seed/ong5/600/400', alt: 'Actividad comunitaria 5' },
-      { src: 'https://picsum.photos/seed/ong6/600/400', alt: 'Actividad comunitaria 6' },
+      { src: 'https://picsum.photos/seed/ong1/600/400', alt: organizationName },
+      { src: 'https://picsum.photos/seed/ong2/600/400', alt: organizationName },
+      { src: 'https://picsum.photos/seed/ong3/600/400', alt: organizationName },
+      { src: 'https://picsum.photos/seed/ong4/600/400', alt: organizationName },
+      { src: 'https://picsum.photos/seed/ong5/600/400', alt: organizationName },
+      { src: 'https://picsum.photos/seed/ong6/600/400', alt: organizationName },
     ],
   },
 
   /** ── Bloque 5: Contacto ── */
   contact: {
-    organizationName: 'MUCHO BICHO',
+    organizationName: organizationName,
     logoSrc: logoUrl,
     backgroundColor: 'bg-gray-200',
     email: 'muchobichotacuarembo@gmail.com',
