@@ -10,6 +10,12 @@ import FooterSection from './components/FooterSection';
 export default function App() {
   const { favicon, titleColor, hero, text, widget, gallery, contact, footer } = siteConfig;
 
+  const organizationName = hero.organizationName;
+
+  useEffect(() => {
+    document.title = organizationName;
+  }, [organizationName]);
+
   useEffect(() => {
     if (favicon) {
       const link = document.querySelector<HTMLLinkElement>('link[rel="icon"]');
