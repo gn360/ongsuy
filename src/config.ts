@@ -3,8 +3,8 @@
 // ============================================================
 // Editar solo este archivo para personalizar la landing de cada ONG.
 // Los componentes toman sus valores de aquí, no tienen defaults fijos.
-const logoUrl = 'https://tutiimg.nyc3.digitaloceanspaces.com/donaruy/users/5/G6xmbscWQBD0zyM4zsYV19rNBe1n2Yte8ZxSAiuq.webp';
-const color = '#292929'; // Color principal de la landing (hex, rgb, hsl o clase Tailwind tipo "bg-gray-200")
+const logoUrl = 'https://tutiimg.nyc3.digitaloceanspaces.com/donaruy/users/13/iE4gIbg7zkBXtRz49wu9K7i3SiJdkf447cd7fg7z.webp';
+const color = '#005ab9'; // Color principal de la landing (hex, rgb, hsl o clase Tailwind tipo "bg-gray-200")
 const organizationName = 'ASDOPAY'; // Nombre de la ONG, se muestra en Hero y Contacto
 export const siteConfig = {
   /** URL del favicon (puede ser externa o local tipo /logo.svg) */
