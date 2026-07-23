@@ -23,6 +23,7 @@ interface IframeSectionProps {
   fallbackHtml?: string;
   /** Altura mínima del contenedor */
   minHeight?: string;
+  dflink?: string; // URL de Doná Fácil para el botón de donación
 }
 
 export default function IframeSection({
@@ -32,6 +33,7 @@ export default function IframeSection({
   scriptContent,
   fallbackHtml,
   minHeight = '650px',
+  dflink,
 }: IframeSectionProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 

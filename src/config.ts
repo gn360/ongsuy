@@ -31,6 +31,7 @@ export const siteConfig = {
 
   /** ── Bloque 3: Widget / Iframe ── */
   widget: {
+    dflink: 'https://donafacil.uy/organizadores/centro-flavia',
     title: 'Colaborá con nosotros',
     embedHtml: `<div id="df-donation-form"></div>
             <link rel="stylesheet" href="https://donafacil.uy/embed/donation-form.css">
