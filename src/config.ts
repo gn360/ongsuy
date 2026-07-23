@@ -3,7 +3,7 @@
 // ============================================================
 // Editar solo este archivo para personalizar la landing de cada ONG.
 // Los componentes toman sus valores de aquí, no tienen defaults fijos.
-const logoUrl = 'https://tutiimg.nyc3.digitaloceanspaces.com/donaruy/users/17/sSu4Li4xgP1TOChS7JLChEbcpDD8lmVWEAhrvyYj.webp';
+const logoUrl = 'https://tutiimg.nyc3.digitaloceanspaces.com/donaruy/users/5/G6xmbscWQBD0zyM4zsYV19rNBe1n2Yte8ZxSAiuq.webp';
 const color = '#EBF772'; // Color principal de la landing (hex, rgb, hsl o clase Tailwind tipo "bg-gray-200")
 const organizationName = 'Amigos de los Animales'; // Nombre de la ONG, se muestra en Hero y Contacto
 export const siteConfig = {
