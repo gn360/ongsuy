@@ -3,30 +3,29 @@
 // ============================================================
 // Editar solo este archivo para personalizar la landing de cada ONG.
 // Los componentes toman sus valores de aquí, no tienen defaults fijos.
-const logoUrl = 'https://tutiimg.nyc3.digitaloceanspaces.com/donaruy/users/69/wgJPX0B0gD61PrZZwG1NqLQBApEfV8f0t6Ftgxu3.jpg';
+const logoUrl = 'https://tutiimg.nyc3.digitaloceanspaces.com/donaruy/users/110/1pubJAN3ubXDRmTkaVKmYQKKLegfjm76aZLvzgqe.webp';
 export const siteConfig = {
   /** URL del favicon (puede ser externa o local tipo /logo.svg) */
   favicon: logoUrl,
 
   /** Color de títulos (hex, rgb, etc.). Generalmente = hero.backgroundColor */
-  titleColor: '#6400ed',
+  titleColor: '#C31D82',
 
   /** ── Bloque 1: Hero (fondo de color + logo + nombre) ── */
   hero: {
-    organizationName: 'FUNDACIÓN TROMPO AZUL',
+    organizationName: 'MUCHO BICHO',
     logoSrc:
       logoUrl,
     /** Color de fondo (hex, rgb, hsl o clase Tailwind tipo "bg-gray-200") */
-    backgroundColor: '#6400ed',
-    tagline: 'Entendemos de autismo',
+    backgroundColor: '#C31D82',
+    tagline: 'Protectora de animales Tacuarembó',
   },
 
   /** ── Bloque 2: Texto ── */
   text: {
     paragraphs: [
-      'Somos una fundación dedicada a la atención de niños y adolescentes con autismo, ofreciendo y promoviendo educación de alta calidad y atención terapéutica personalizada.',
-      'Brindamos también capacitación continua a profesionales en temas específicos y acompañamiento a las familias para que se transforme en un trabajo en equipo.',
-      'Trabajamos con cada niño de manera individual de acuerdo a sus necesidades, acordando un pan de trabajo con la familia, el que se evalúa y ajusta periódicamente. Con las intervenciones individuales y grupales buscamos estimular la comunicación, el juego, las habilidades sociales y académico-funcionales.',
+      'Mucho bicho Tacuarembó, es un refugio con más de 22 años de trayectoria, dedicado al rescate y cuidado de perros que han sido abandonados o maltratados.',
+      'Actualmente alberga a más de 300 animales. Su prioridad es recuperarlos, alimentarlos y brindarles el amor que siempre merecieron. Además, se aseguran de encontrarles un hogar donde sean tratados con el respeto y cariño que merecen.',      
     ],
   },
 
@@ -35,7 +34,7 @@ export const siteConfig = {
     title: 'Colaborá con nosotros',
     embedHtml: `<div id="df-donation-form"></div>
             <link rel="stylesheet" href="https://donafacil.uy/embed/donation-form.css">
-            <script src="https://donafacil.uy/embed/donation-form.js" data-slug="fundacion-trompo-azul-20251009113224" data-sku="QSNCVQJV"></script>
+            <script src="https://donafacil.uy/embed/donation-form.js" data-slug="mucho-bicho-tacuarembo-20251009113224" data-sku="YPPRCXBQ"></script>
     `,
   },
 
@@ -54,12 +53,11 @@ export const siteConfig = {
 
   /** ── Bloque 5: Contacto ── */
   contact: {
-    organizationName: 'FUNDACIÓN TROMPO AZUL',
+    organizationName: 'MUCHO BICHO',
     logoSrc: logoUrl,
     backgroundColor: 'bg-gray-200',
-    phone: '+598 91 944 470',
-    email: 'info@trompoazul.org',
-    address: 'Av. Pérez Butler, M9622 S11 El Pinar, Canelones, Uruguay',
+    email: 'muchobichotacuarembo@gmail.com',
+    address: 'Intersección rutas 5 y 26, Tacuarembó, Uruguay',
   },
 
   /** ── Bloque 6: Footer ── */
