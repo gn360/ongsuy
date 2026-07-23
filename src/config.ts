@@ -4,28 +4,29 @@
 // Editar solo este archivo para personalizar la landing de cada ONG.
 // Los componentes toman sus valores de aquí, no tienen defaults fijos.
 const logoUrl = 'https://tutiimg.nyc3.digitaloceanspaces.com/donaruy/users/17/sSu4Li4xgP1TOChS7JLChEbcpDD8lmVWEAhrvyYj.webp';
+const color = '#EBF772'; // Color principal de la landing (hex, rgb, hsl o clase Tailwind tipo "bg-gray-200")
+const organizationName = 'Amigos de los Animales'; // Nombre de la ONG, se muestra en Hero y Contacto
 export const siteConfig = {
   /** URL del favicon (puede ser externa o local tipo /logo.svg) */
   favicon: logoUrl,
 
   /** Color de títulos (hex, rgb, etc.). Generalmente = hero.backgroundColor */
-  titleColor: '#0093D6',
+  titleColor: color,
 
   /** ── Bloque 1: Hero (fondo de color + logo + nombre) ── */
   hero: {
-    organizationName: 'Centro Integral Flavia',
+    organizationName: organizationName,
     logoSrc:
       logoUrl,
     /** Color de fondo (hex, rgb, hsl o clase Tailwind tipo "bg-gray-200") */
-    backgroundColor: '#0093D6',
+    backgroundColor: color,
   },
 
   /** ── Bloque 2: Texto ── */
   text: {
     paragraphs: [
-      'Centro Integral Flavia nació en el 2005 por iniciativa de Caty Caffreé, mamá de una joven autista.',
-      'Es un hogar de 24 horas que acoge a más de 30 adolescentes, jóvenes y adultos con patologías psiquiátricas y discapacidad intelectual. Es un espacio de contención, donde se promueve la escucha y el acompañamiento.',
-      'El mayor objetivo del Centro Flavia es trabajar para que puedan insertarse en la sociedad y generar vínculos con sus familias y/o referentes en función a las necesidades y posibilidades de cada una de ellas. Para lograrlo buscamos siempre espacios de inclusión que van más allá de la educación formal, espacios de intercambio con la sociedad que los enriquecen.',
+      'Amigos de los Animales es una organización que trabaja hace 16 años en el rescate, rehabilitación y protección de animales. Nuestro principal objetivo ha sido promover la castración de perros y gatos y de esa manera disminuir la superpoblación de animales que hoy existe en nuestro país.',
+      'Somos una ONG pionera en realizar jornadas de castración masiva entendiendo que es la solución para evitar el nacimiento de cientos de animales cada año que sabemos serán abandonados.',
     ],
   },
 
@@ -34,7 +35,7 @@ export const siteConfig = {
     title: 'Colaborá con nosotros',
     embedHtml: `<div id="df-donation-form"></div>
             <link rel="stylesheet" href="https://donafacil.uy/embed/donation-form.css">
-            <script src="https://donafacil.uy/embed/donation-form.js" data-slug="centro-flavia-20251009112959" data-sku="QQPJGJM1"></script>
+            <script src="https://donafacil.uy/embed/donation-form.js" data-slug="amigos-de-los-animales-20251009112959" data-sku="SPEQN7DD"></script>
     `,
   },
 
@@ -53,12 +54,12 @@ export const siteConfig = {
 
   /** ── Bloque 5: Contacto ── */
   contact: {
-    organizationName: 'Centro Integral Flavia',
+    organizationName: organizationName,
     logoSrc: logoUrl,
     backgroundColor: 'bg-gray-200',
-    phone: '+598 4733 5707',
-    email: 'centroflavia@gmail.com',
-    address: 'Uruguay Nº 1461, Salto, Uruguay',
+    phone: '+598 98 913 813',
+    email: 'ongamigosanimales@gmail.com',
+    address: 'Dr. Jose Verocay 727, Paysandú, Uruguay',
   },
 
   /** ── Bloque 6: Footer ── */
