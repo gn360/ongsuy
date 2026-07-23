@@ -23,6 +23,7 @@ interface IframeSectionProps {
   fallbackHtml?: string;
   /** Altura mínima del contenedor */
   minHeight?: string;
+  dflink?: string; // Link a Doná Fácil u otra página de donación
 }
 
 export default function IframeSection({
@@ -32,6 +33,7 @@ export default function IframeSection({
   scriptContent,
   fallbackHtml,
   minHeight = '650px',
+  dflink,
 }: IframeSectionProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -141,6 +143,10 @@ export default function IframeSection({
           __html: showFallback ? (fallbackHtml ?? defaultFallback) : '',
         }}
       />
+
+      <a href={dflink} target="_blank" rel="noopener noreferrer" className="block mt-4 text-center text-sm text-primary-400 hover:underline border border-primary-300 rounded-lg py-2 px-4 mx-auto max-w-xs">
+      Otras formas de donar
+      </a>
     </section>
   );
 }

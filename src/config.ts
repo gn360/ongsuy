@@ -4,6 +4,7 @@
 // Editar solo este archivo para personalizar la landing de cada ONG.
 // Los componentes toman sus valores de aquí, no tienen defaults fijos.
 const logoUrl = 'https://tutiimg.nyc3.digitaloceanspaces.com/donaruy/users/69/wgJPX0B0gD61PrZZwG1NqLQBApEfV8f0t6Ftgxu3.jpg';
+const organizationName = 'FUNDACIÓN TROMPO AZUL';
 export const siteConfig = {
   /** URL del favicon (puede ser externa o local tipo /logo.svg) */
   favicon: logoUrl,
@@ -13,7 +14,7 @@ export const siteConfig = {
 
   /** ── Bloque 1: Hero (fondo de color + logo + nombre) ── */
   hero: {
-    organizationName: 'FUNDACIÓN TROMPO AZUL',
+    organizationName: organizationName,
     logoSrc:
       logoUrl,
     /** Color de fondo (hex, rgb, hsl o clase Tailwind tipo "bg-gray-200") */
@@ -32,6 +33,7 @@ export const siteConfig = {
 
   /** ── Bloque 3: Widget / Iframe ── */
   widget: {
+    dflink: 'https://donafacil.uy/organizadores/fundacion-trompo-azul-1',
     title: 'Colaborá con nosotros',
     embedHtml: `<div id="df-donation-form"></div>
             <link rel="stylesheet" href="https://donafacil.uy/embed/donation-form.css">
@@ -43,18 +45,18 @@ export const siteConfig = {
   gallery: {
     title: 'Nuestras actividades',
     images: [
-      { src: 'https://tutiimg.nyc3.digitaloceanspaces.com/ongsuy/casa-amiga/images-01.jpg', alt: 'Trompo Azul' },
-      { src: 'https://tutiimg.nyc3.digitaloceanspaces.com/ongsuy/casa-amiga/images-02.jpg', alt: 'Trompo Azul' },
-      { src: 'https://tutiimg.nyc3.digitaloceanspaces.com/ongsuy/casa-amiga/images-03.jpg', alt: 'Trompo Azul' },
-      { src: 'https://tutiimg.nyc3.digitaloceanspaces.com/ongsuy/casa-amiga/images-04.jpg', alt: 'Trompo Azul' },
-      { src: 'https://tutiimg.nyc3.digitaloceanspaces.com/ongsuy/casa-amiga/images-05.jpg', alt: 'Trompo Azul' },
-      { src: 'https://tutiimg.nyc3.digitaloceanspaces.com/ongsuy/casa-amiga/images-06.jpg', alt: 'Trompo Azul' },
+      { src: 'https://tutiimg.nyc3.digitaloceanspaces.com/ongsuy/trompo-azul/trompo-azul-01.jpg', alt: organizationName },
+      { src: 'https://tutiimg.nyc3.digitaloceanspaces.com/ongsuy/trompo-azul/trompo-azul-02.jpg', alt: organizationName },
+      { src: 'https://tutiimg.nyc3.digitaloceanspaces.com/ongsuy/trompo-azul/trompo-azul-03.jpg', alt: organizationName },
+      { src: 'https://tutiimg.nyc3.digitaloceanspaces.com/ongsuy/trompo-azul/trompo-azul-04.jpg', alt: organizationName },
+      { src: 'https://tutiimg.nyc3.digitaloceanspaces.com/ongsuy/trompo-azul/trompo-azul-05.jpg', alt: organizationName },
+      { src: 'https://tutiimg.nyc3.digitaloceanspaces.com/ongsuy/trompo-azul/trompo-azul-06.jpg', alt: organizationName },
     ],
   },
 
   /** ── Bloque 5: Contacto ── */
   contact: {
-    organizationName: 'FUNDACIÓN TROMPO AZUL',
+    organizationName: organizationName,
     logoSrc: logoUrl,
     backgroundColor: 'bg-gray-200',
     phone: '+598 91 944 470',
