@@ -2,8 +2,8 @@ interface ContactSectionProps {
   organizationName: string;
   logoSrc: string;
   backgroundColor: string;
-  phone: string;
-  address: string;
+  phone?: string;
+  address?: string;
   email?: string;
   socialLinks?: { label: string; url: string }[];
 }
