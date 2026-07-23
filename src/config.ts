@@ -18,7 +18,6 @@ export const siteConfig = {
       logoUrl,
     /** Color de fondo (hex, rgb, hsl o clase Tailwind tipo "bg-gray-200") */
     backgroundColor: '#0093D6',
-    tagline: 'Protectora de animales Tacuarembó',
   },
 
   /** ── Bloque 2: Texto ── */
