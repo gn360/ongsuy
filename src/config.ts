@@ -45,12 +45,12 @@ export const siteConfig = {
   gallery: {
     title: 'Nuestras actividades',
     images: [
-      { src: 'https://picsum.photos/seed/ong1/600/400', alt: organizationName },
-      { src: 'https://picsum.photos/seed/ong2/600/400', alt: organizationName },
-      { src: 'https://picsum.photos/seed/ong3/600/400', alt: organizationName },
-      { src: 'https://picsum.photos/seed/ong4/600/400', alt: organizationName },
-      { src: 'https://picsum.photos/seed/ong5/600/400', alt: organizationName },
-      { src: 'https://picsum.photos/seed/ong6/600/400', alt: organizationName },
+      { src: 'https://tutiimg.nyc3.digitaloceanspaces.com/ongsuy/centro-flavia/flavia-01.jpg', alt: organizationName },
+      { src: 'https://tutiimg.nyc3.digitaloceanspaces.com/ongsuy/centro-flavia/flavia-02.jpg', alt: organizationName },
+      { src: 'https://tutiimg.nyc3.digitaloceanspaces.com/ongsuy/centro-flavia/flavia-03.jpg', alt: organizationName },
+      { src: 'https://tutiimg.nyc3.digitaloceanspaces.com/ongsuy/centro-flavia/flavia-04.jpg', alt: organizationName },
+      { src: 'https://tutiimg.nyc3.digitaloceanspaces.com/ongsuy/centro-flavia/flavia-05.jpg', alt: organizationName },
+      { src: 'https://tutiimg.nyc3.digitaloceanspaces.com/ongsuy/centro-flavia/flavia-06.jpg', alt: organizationName },
     ],
   },
 
