@@ -129,3 +129,31 @@ Para adaptar la landing a una ONG específica, editar `src/App.tsx` pasando prop
 - Sintoma tipico cuando falla el embed: el contenedor queda solo como `<div id="df-donation-form"></div>` sin render del formulario.
 - No commitear `index.html` generado por `dist` (con `/assets/*.js`), porque Vite necesita el `index.html` fuente con `<script type="module" src="/src/main.tsx"></script>` para compilar.
 - Se agrego `prebuild` en `package.json` para restaurar automaticamente `index.html` desde `index.vite.html` antes de cada build.
+
+## Fixes aplicados (2026-07-23)
+
+### dflink — link "Otras formas de donar"
+- **Bug #1**: `IframeSection.tsx` usaba `{{dflink}}` (sintaxis Mustache) en vez de `{dflink}` (JSX). El href quedaba literalmente `"{{dflink}}"`.
+- **Bug #2**: `App.tsx` no pasaba `dflink={widget.dflink}` al componente → usaba el default `'https://donafacil.uy'`.
+- **Fix**: `href={dflink}` en el JSX + agregar `dflink={widget.dflink}` en la invocación del componente desde App.tsx.
+
+### Título de pestaña del navegador
+- `<title>Landing ONG</title>` hardcodeado en `index.html`
+- **Fix**: `useEffect` en `App.tsx` que setea `document.title = hero.organizationName` (tomado del config)
+- El título se actualiza al montar React; hay un flash inicial de "Landing ONG" antes de hidratar
+
+### Configuración centralizada
+- `src/config.ts` define `siteConfig` con todas las secciones (hero, text, widget, gallery, contact, footer)
+- `organizationName` vive en `hero.organizationName` y `contact.organizationName`
+- `widget.dflink` es la URL para el link "Otras formas de donar"
+- Cada rama de ONG tiene su propio `config.ts` personalizado
+
+### Ramas activas
+- `main`: plantilla base (no se despliega)
+- `asdopay`, `casa-amiga`, `trompo-azul`, `mucho-bicho`, `centro-flavia`, `adla`: ramas de ONG
+- Fix de `document.title` replicado en las 5 ramas (excepto `main`)
+- Fixes de `dflink` ya estaban aplicados en todas las ramas
+
+### Convención JSX vs Mustache
+- En JSX, `{}` interpola expresiones JavaScript. `{{}}` es texto literal.
+- No usar sintaxis de template engines (Mustache/Handlebars) en archivos `.tsx`.
