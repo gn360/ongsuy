@@ -144,9 +144,11 @@ export default function IframeSection({
         }}
       />
 
-      <a href={dflink} target="_blank" style={{ display: 'none !important' }} rel="noopener noreferrer" className="block mt-4 text-center text-sm text-primary-400 hover:underline border border-primary-300 rounded-lg py-2 px-4 mx-auto max-w-xs">
+<div style={{ display: 'none !important' }}>
+      <a href={dflink} target="_blank" rel="noopener noreferrer" className="block mt-4 text-center text-sm text-primary-400 hover:underline border border-primary-300 rounded-lg py-2 px-4 mx-auto max-w-xs">
       Otras formas de donar
       </a>
+    </div>
     </section>
   );
 }
