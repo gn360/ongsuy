@@ -58,7 +58,7 @@ export const siteConfig = {
     organizationName: organizationName,
     logoSrc: logoUrl,
     backgroundColor: 'bg-gray-200',
-    phone: '+598 98 913 813',
+    phone: '+598 98 852 852',
     email: 'ongamigosanimales@gmail.com',
     address: 'Dr. Jose Verocay 727, Paysandú, Uruguay',
   },
