@@ -46,11 +46,11 @@ export const siteConfig = {
     title: 'Nuestras actividades',
     images: [
       { src: 'https://tutiimg.nyc3.digitaloceanspaces.com/ongsuy/centro-flavia/flavia-01.jpg', alt: organizationName },
-      { src: 'https://tutiimg.nyc3.digitaloceanspaces.com/ongsuy/centro-flavia/flavia-02.jpg', alt: organizationName },
-      { src: 'https://tutiimg.nyc3.digitaloceanspaces.com/ongsuy/centro-flavia/flavia-03.jpg', alt: organizationName },
-      { src: 'https://tutiimg.nyc3.digitaloceanspaces.com/ongsuy/centro-flavia/flavia-04.jpg', alt: organizationName },
-      { src: 'https://tutiimg.nyc3.digitaloceanspaces.com/ongsuy/centro-flavia/flavia-05.jpg', alt: organizationName },
-      { src: 'https://tutiimg.nyc3.digitaloceanspaces.com/ongsuy/centro-flavia/flavia-06.jpg', alt: organizationName },
+      { src: 'https://tutiimg.nyc3.digitaloceanspaces.com/ongsuy/centro-flavia/flavia-02.jpeg', alt: organizationName },
+      { src: 'https://tutiimg.nyc3.digitaloceanspaces.com/ongsuy/centro-flavia/flavia-03.jpeg', alt: organizationName },
+      { src: 'https://tutiimg.nyc3.digitaloceanspaces.com/ongsuy/centro-flavia/flavia-04.jpeg', alt: organizationName },
+      { src: 'https://tutiimg.nyc3.digitaloceanspaces.com/ongsuy/centro-flavia/flavia-05.jpeg', alt: organizationName },
+      { src: 'https://tutiimg.nyc3.digitaloceanspaces.com/ongsuy/centro-flavia/flavia-06.jpeg', alt: organizationName },
     ],
   },
 
