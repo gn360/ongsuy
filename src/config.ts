@@ -44,12 +44,12 @@ export const siteConfig = {
   gallery: {
     title: 'Nuestras actividades',
     images: [
-      { src: 'https://picsum.photos/seed/ong1/600/400', alt: organizationName },
-      { src: 'https://picsum.photos/seed/ong2/600/400', alt: organizationName },
-      { src: 'https://picsum.photos/seed/ong3/600/400', alt: organizationName },
-      { src: 'https://picsum.photos/seed/ong4/600/400', alt: organizationName },
-      { src: 'https://picsum.photos/seed/ong5/600/400', alt: organizationName },
-      { src: 'https://picsum.photos/seed/ong6/600/400', alt: organizationName },
+      { src: 'https://tutiimg.nyc3.digitaloceanspaces.com/ongsuy/mucho-bicho/mucho-bicho-01.jpeg', alt: organizationName },
+      { src: 'https://tutiimg.nyc3.digitaloceanspaces.com/ongsuy/mucho-bicho/mucho-bicho-02.jpeg', alt: organizationName },
+      { src: 'https://tutiimg.nyc3.digitaloceanspaces.com/ongsuy/mucho-bicho/mucho-bicho-03.jpeg', alt: organizationName },
+      { src: 'https://tutiimg.nyc3.digitaloceanspaces.com/ongsuy/mucho-bicho/mucho-bicho-04.jpeg', alt: organizationName },
+      { src: 'https://tutiimg.nyc3.digitaloceanspaces.com/ongsuy/mucho-bicho/mucho-bicho-05.jpeg', alt: organizationName },
+      { src: 'https://tutiimg.nyc3.digitaloceanspaces.com/ongsuy/mucho-bicho/mucho-bicho-06.jpeg', alt: organizationName },
     ],
   },
 
