@@ -4,7 +4,7 @@
 // Editar solo este archivo para personalizar la landing de cada ONG.
 // Los componentes toman sus valores de aquí, no tienen defaults fijos.
 const logoUrl = 'https://tutiimg.nyc3.digitaloceanspaces.com/ongsuy/casa-ronald-mcdonald/logo-casa-ronald-mcdonald-.png';
-const organizationName = 'Casa Ronald McDonald Uruguay';
+const organizationName = 'Casa Ronald McDonald';
 const color = '#DC0008';
 export const siteConfig = {
   /** URL del favicon (puede ser externa o local tipo /logo.svg) */
@@ -15,19 +15,18 @@ export const siteConfig = {
 
   /** ── Bloque 1: Hero (fondo de color + logo + nombre) ── */
   hero: {
-    organizationName: 'Casa Ronald McDonald Uruguay',
+    organizationName: organizationName,
     logoSrc: logoUrl,
     /** Color de fondo (hex, rgb, hsl o clase Tailwind tipo "bg-gray-200") */
     backgroundColor: color,
-    tagline: 'Grupo Oncológico "Vivir Mejor"',
+    tagline: 'Uruguay',
   },
 
   /** ── Bloque 2: Texto ── */
   text: {
     paragraphs: [
-      'Casa Ronald McDonald Uruguay fue creado para brindar apoyo a las familias con niños que requieren tratamientos médicos prolongados fuera de su ciudad de residencia.',
-      'Estas familias generalmente enfrentan dificultades económicas y emocionales, lo que hace que su situación sea aún más desafiante.',
-      'Casa Ronald McDonald Uruguay ofrece alojamiento, alimentación y un entorno de apoyo para que las familias puedan concentrarse en la recuperación de sus hijos.',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     ],
   },
 
@@ -44,12 +43,12 @@ export const siteConfig = {
   gallery: {
     title: 'Nuestras actividades',
     images: [
-      { src: 'https://tutiimg.nyc3.digitaloceanspaces.com/ongsuy/casa-amiga/images-01.jpg', alt: organizationName },
-      { src: 'https://tutiimg.nyc3.digitaloceanspaces.com/ongsuy/casa-amiga/images-02.jpg', alt: organizationName },
-      { src: 'https://tutiimg.nyc3.digitaloceanspaces.com/ongsuy/casa-amiga/images-03.jpg', alt: organizationName },
-      { src: 'https://tutiimg.nyc3.digitaloceanspaces.com/ongsuy/casa-amiga/images-04.jpg', alt: organizationName },
-      { src: 'https://tutiimg.nyc3.digitaloceanspaces.com/ongsuy/casa-amiga/images-05.jpg', alt: organizationName },
-      { src: 'https://tutiimg.nyc3.digitaloceanspaces.com/ongsuy/casa-amiga/images-06.jpg', alt: organizationName },
+      { src: 'https://tutiimg.nyc3.digitaloceanspaces.com/ongsuy/casa-ronald-mcdonald/ronald-foto-.webp', alt: organizationName },
+      { src: 'https://tutiimg.nyc3.digitaloceanspaces.com/ongsuy/casa-ronald-mcdonald/ronald-foto-.webp', alt: organizationName },
+      { src: 'https://tutiimg.nyc3.digitaloceanspaces.com/ongsuy/casa-ronald-mcdonald/ronald-foto-.webp', alt: organizationName },
+      { src: 'https://tutiimg.nyc3.digitaloceanspaces.com/ongsuy/casa-ronald-mcdonald/ronald-foto-.webp', alt: organizationName },
+      { src: 'https://tutiimg.nyc3.digitaloceanspaces.com/ongsuy/casa-ronald-mcdonald/ronald-foto-.webp', alt: organizationName },
+      { src: 'https://tutiimg.nyc3.digitaloceanspaces.com/ongsuy/casa-ronald-mcdonald/ronald-foto-.webp', alt: organizationName },
     ],
   },
 
@@ -59,8 +58,22 @@ export const siteConfig = {
     logoSrc:
       logoUrl,
     backgroundColor: 'bg-gray-200',
-    phone: '+598 4733 9077',
-    address: 'Cervantes 1035, Salto, Uruguay',
+    contacts: [
+      {
+        title: 'En el Hospital Pereira Rossell',
+        phone: '+598 2705 5539',
+        address: 'Br. Artigas 1550, Salto, Uruguay',
+      },
+      {
+        title: 'En el Hospital de Tacuarembó',
+        phone: '+598 4632 2955 o +598 4632 3812 int.178',
+        address: 'Treinta y Tres 444, Tacuarembó, Uruguay',
+      },
+      {
+        title: 'Asociación Casa Ronald McDonald Uruguay',
+        email: 'contactenos@casaronaldmcdonald.org.uy',
+      },
+    ],
   },
 
   /** ── Bloque 6: Footer ── */
@@ -70,6 +83,6 @@ export const siteConfig = {
       'https://tutiimg.nyc3.digitaloceanspaces.com/donaruy/recursos/logo-df-gris.png',
     legalText:
       'Las donaciones son fáciles, seguras y transparentes gracias al aval y la tecnología de Doná Fácil, aliados en recaudación de fondos.\n\nSitio desarrollado por Doná Fácil.',
-      copyrightText: '© 2026 Doná Fácil. Todos los derechos reservados.',
+    copyrightText: '© 2026 Doná Fácil. Todos los derechos reservados.',
   },
 };
