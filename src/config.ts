@@ -3,9 +3,9 @@
 // ============================================================
 // Editar solo este archivo para personalizar la landing de cada ONG.
 // Los componentes toman sus valores de aquí, no tienen defaults fijos.
-const logoUrl = 'https://tutiimg.nyc3.digitaloceanspaces.com/donaruy/users/281/logo-casa-amiga.png';
-const organizationName = 'Casa Amiga - Grupo Oncológico "Vivir Mejor"';
-const color = '#00BD3D';
+const logoUrl = 'https://tutiimg.nyc3.digitaloceanspaces.com/ongsuy/casa-ronald-mcdonald/logo-casa-ronald-mcdonald-.png';
+const organizationName = 'Casa Ronald McDonald Uruguay';
+const color = '#DC0008';
 export const siteConfig = {
   /** URL del favicon (puede ser externa o local tipo /logo.svg) */
   favicon: logoUrl,
@@ -15,7 +15,7 @@ export const siteConfig = {
 
   /** ── Bloque 1: Hero (fondo de color + logo + nombre) ── */
   hero: {
-    organizationName: 'Casa Amiga',
+    organizationName: 'Casa Ronald McDonald Uruguay',
     logoSrc: logoUrl,
     /** Color de fondo (hex, rgb, hsl o clase Tailwind tipo "bg-gray-200") */
     backgroundColor: color,
@@ -25,19 +25,19 @@ export const siteConfig = {
   /** ── Bloque 2: Texto ── */
   text: {
     paragraphs: [
-      'Grupo Oncologico Vivir Mejor- Casa Amiga fue creado por un grupo de pacientes oncológicos que vieron la necesidad que existía de contar con un lugar físico para alojar a pacientes oncológicos o familiares que llegan desde distintos puntos del país, a realizarse tratamientos o estudios médicos.',
-      'Estos pacientes generalmente no cuentan con los recursos necesarios para afrontar la situación, lo que sumado a la angustia y preocupación por su salud, hace que los casos sean aun mas complejos.',
-      'Casa Amiga brinda de forma gratuita estadía, alimentación, abrigo, artículos de higiene y todo lo necesario para que tanto el paciente como su entorno familiar puedan enfocarse en su recuperación.',
+      'Casa Ronald McDonald Uruguay fue creado para brindar apoyo a las familias con niños que requieren tratamientos médicos prolongados fuera de su ciudad de residencia.',
+      'Estas familias generalmente enfrentan dificultades económicas y emocionales, lo que hace que su situación sea aún más desafiante.',
+      'Casa Ronald McDonald Uruguay ofrece alojamiento, alimentación y un entorno de apoyo para que las familias puedan concentrarse en la recuperación de sus hijos.',
     ],
   },
 
   /** ── Bloque 3: Widget / Iframe ── */
   widget: {
-    dflink: 'https://donafacil.uy/organizadores/casa-amiga',
+    dflink: 'https://donafacil.uy/organizadores/asociacion-casa-ronald-mcdonald-uruguay',
     title: 'Colaborá con nosotros',
     embedHtml: `<div id="df-donation-form"></div>
-<link rel="stylesheet" href="https://donafacil.uy/embed/donation-form.css">
-<script src="https://donafacil.uy/embed/donation-form.js" data-slug="casa-amiga-grupo-oncologico-vivir-mejor-20251009113226" data-sku="GHR2JRGZ"></script>`,
+            <link rel="stylesheet" href="https://donafacil.uy/embed/donation-form.css">
+            <script src="https://donafacil.uy/embed/donation-form.js" data-slug="apoya-a-las-familias-de-la-asociacion-casa-ronald-mcdonald-CLFqEJ" data-sku="649DCTJT"></script>`,
   },
 
   /** ── Bloque 4: Galería ── */
