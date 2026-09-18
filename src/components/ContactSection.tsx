@@ -1,10 +1,15 @@
+interface ContactItem {
+  title: string;
+  phone?: string;
+  address?: string;
+  email?: string;
+}
+
 interface ContactSectionProps {
   organizationName: string;
   logoSrc: string;
   backgroundColor: string;
-  phone: string;
-  address: string;
-  email?: string;
+  contacts: ContactItem[];
   socialLinks?: { label: string; url: string }[];
 }
 
@@ -12,14 +17,12 @@ export default function ContactSection({
   organizationName,
   logoSrc,
   backgroundColor,
-  phone,
-  address,
-  email,
+  contacts,
   socialLinks,
 }: ContactSectionProps) {
   return (
     <section className={`${backgroundColor} text-gray-700 py-16 px-4 rounded-[20px] md:rounded-none overflow-hidden`}>
-      <div className="max-w-lg mx-auto text-center">
+      <div className="max-w-5xl mx-auto text-center">
         {/* Logo */}
         <img
           src={logoSrc}
@@ -28,32 +31,37 @@ export default function ContactSection({
         />
 
         {/* Nombre */}
-        <h2 className="text-2xl md:text-3xl font-bold mb-6">{organizationName}</h2>
+        <h2 className="text-2xl md:text-3xl font-bold mb-8">{organizationName}</h2>
 
-        {/* Datos de contacto */}
-        <div className="space-y-3 text-base md:text-lg text-gray-700">
-          {email && (
-            <p>
-              <span className="font-semibold text-gray-700">Email: </span>
-              <a href={`mailto:${email}`} className="hover:underline">
-                {email}
-              </a>
-            </p>
-          )}
-          {phone && (
-            <p>
-              <span className="font-semibold text-gray-700">Teléfono: </span>
-              <a href={`tel:${phone.replace(/\s/g, '')}`} className="hover:underline">
-                {phone}
-              </a>
-            </p>
-          )}
-          {address && (
-            <p>
-              <span className="font-semibold text-gray-700">Dirección: </span>
-              {address}
-            </p>
-          )}
+        {/* Bloques de contacto: 3 en horizontal (desktop), apilados (mobile) */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 text-left">
+          {contacts.map((contact, i) => (
+            <div key={i} className="flex flex-col gap-2">
+              <h3 className="font-bold text-lg text-gray-900">{contact.title}</h3>
+              {contact.phone && (
+                <p className="text-base md:text-lg">
+                  <span className="font-semibold text-gray-800">Teléfono: </span>
+                  <a href={`tel:${contact.phone.replace(/\s/g, '')}`} className="hover:underline">
+                    {contact.phone}
+                  </a>
+                </p>
+              )}
+              {contact.address && (
+                <p className="text-base md:text-lg">
+                  <span className="font-semibold text-gray-800">Dirección: </span>
+                  {contact.address}
+                </p>
+              )}
+              {contact.email && (
+                <p className="text-base md:text-lg">
+                  <span className="font-semibold text-gray-800">Email: </span>
+                  <a href={`mailto:${contact.email}`} className="hover:underline">
+                    {contact.email}
+                  </a>
+                </p>
+              )}
+            </div>
+          ))}
         </div>
 
         {/* Redes sociales */}
