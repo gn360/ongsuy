@@ -6,7 +6,6 @@ interface GallerySectionProps {
   video_url: string;
   text: string;
   images: { src: string; alt: string }[];
-  titleColor?: string;
 }
 
 export default function GallerySection({
@@ -14,7 +13,6 @@ export default function GallerySection({
   video_url,
   text,
   images,
-  titleColor,
 }: GallerySectionProps) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 

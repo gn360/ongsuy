@@ -8,7 +8,7 @@ import ContactSection from './components/ContactSection';
 import FooterSection from './components/FooterSection';
 
 export default function App() {
-  const { favicon, titleColor, hero, text, widget, gallery, contact, footer } = siteConfig;
+  const { favicon, hero, text, widget, gallery, contact, footer } = siteConfig;
 
   const organizationName = hero.organizationName;
 
@@ -28,9 +28,9 @@ export default function App() {
       <div className="px-5 md:px-0 py-3 md:py-0">
         <HeroSection {...hero} />
         <TextSection title={text.title} paragraphs={text.paragraphs} />
-        <IframeSection title={widget.title} titleColor={titleColor} embedHtml={widget.embedHtml} dflink={widget.dflink} />
+        <IframeSection title={widget.title} embedHtml={widget.embedHtml} dflink={widget.dflink} />
       </div>
-      <GallerySection title={gallery.title} video_url={gallery.video_url} text={gallery.text} images={gallery.images} titleColor={titleColor} />
+      <GallerySection title={gallery.title} video_url={gallery.video_url} text={gallery.text} images={gallery.images} />
       <ContactSection {...contact} />
       <FooterSection {...footer} />
     </div >

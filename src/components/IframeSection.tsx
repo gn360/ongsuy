@@ -15,7 +15,6 @@ interface IframeSectionProps {
    *  <script src="https://donafacil.uy/embed/donation-form.js" data-slug="..." data-sku="..."></script>`
    */
   title?: string;
-  titleColor?: string;
   embedHtml?: string;
   /** @deprecated Usar embedHtml. Script simple a inyectar sin procesar. */
   scriptContent?: string;
@@ -28,7 +27,6 @@ interface IframeSectionProps {
 
 export default function IframeSection({
   title,
-  titleColor,
   embedHtml,
   scriptContent,
   fallbackHtml,

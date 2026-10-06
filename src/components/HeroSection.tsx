@@ -2,14 +2,12 @@ interface HeroSectionProps {
   organizationName: string;
   logoSrc: string;
   backgroundColor: string;
-  tagline?: string;
 }
 
 export default function HeroSection({
   organizationName,
   logoSrc,
   backgroundColor,
-  tagline,
 }: HeroSectionProps) {
   return (
     <section
