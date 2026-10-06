@@ -1,13 +1,22 @@
 interface TextSectionProps {
+  title: string;
   paragraphs: string[];
 }
 
-export default function TextSection({ paragraphs }: TextSectionProps) {
+export default function TextSection({ title, paragraphs }: TextSectionProps) {
   return (
-    <section className="py-16 px-4 max-w-3xl mx-auto rounded-[20px] md:rounded-none bg-gray-200 md:bg-transparent">
-      <div className="space-y-5 text-gray-600 leading-relaxed text-lg text-center">
+    <section style={{ backgroundColor: '#C6B9E2' }}
+      className="py-5 px-5 max-w-5xl mx-auto mb-5 rounded-[20px]">
+
+      <div style={{ lineHeight: '1.1' }}
+        className="text-gray-900 leading-relaxed text-lg">
+
+        <h1 style={{ color: 'black', fontSize: '1.5rem', fontWeight: 700, lineHeight: '1.1' }}>
+          {title}
+        </h1>
+
         {paragraphs.map((p, i) => (
-          <p key={i}>{p}</p>
+          <p key={i} style={{ marginTop: '0.8rem', fontSize: '1rem', lineHeight: '1.2' }}>{p}</p>
         ))}
       </div>
     </section>

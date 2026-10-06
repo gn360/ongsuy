@@ -129,11 +129,12 @@ export default function IframeSection({
   const showFallback = !embedHtml && !scriptContent;
 
   return (
-    <section className="py-12 px-4 rounded-[20px] md:rounded-none bg-white md:bg-transparent">
+    <section className="rounded-[20px] md:rounded-none bg-white md:bg-transparent">
       {title && (
-        <h2 style={titleColor ? { color: titleColor } : undefined} className="text-2xl md:text-3xl font-bold text-gray-800 mb-6 text-center">
+        <h1 style={{ color: 'black', fontSize: '1.5rem', fontWeight: 700, lineHeight: '1.1' }}
+          className="leading-tight font-bold mb-0 text-center">
           {title}
-        </h2>
+        </h1>
       )}
       <div
         ref={containerRef}

@@ -3,6 +3,9 @@ interface FooterSectionProps {
   donaFacilLogoSrc: string;
   legalText: string;
   copyrightText?: string;
+  /** Líneas de contacto de Doná Fácil (tel, direcciones, email) */
+  contactLines?: string[];
+  developedByText?: string;
 }
 
 export default function FooterSection({
@@ -10,10 +13,12 @@ export default function FooterSection({
   donaFacilLogoSrc,
   legalText,
   copyrightText,
+  contactLines,
+  developedByText,
 }: FooterSectionProps) {
   return (
-    <footer className="bg-white text-white py-10 px-4 rounded-[20px] md:rounded-none overflow-hidden">
-      <div className="max-w-lg mx-auto text-center">
+    <footer className="bg-white text-white pb-5 px-5 rounded-[20px] md:rounded-none overflow-hidden">
+      <div className="max-w-5xl mx-auto text-center">
         {/* Logo Doná Fácil */}
         <a
           href={donaFacilUrl}
@@ -28,16 +33,43 @@ export default function FooterSection({
           />
         </a>
 
-        {/* Texto chico */}
-        <p className="text-xs md:text-sm text-gray-400 leading-relaxed mb-6 max-w-md mx-auto">
-          {legalText}
-        </p>
+        {/* Texto legal */}
+        {legalText && (
+          <p
+            className="leading-relaxed max-w-md mx-auto text-start"
+            style={{ color: 'black', fontSize: '0.8rem', lineHeight: '1.2' }}
+          >
+            {legalText}
+          </p>
+        )}
 
-        {/* Línea separadora */}
-        <hr className="border-gray-700 mb-4" />
+        {/* Contacto Doná Fácil */}
+        {contactLines && contactLines.length > 0 && (
+          <div
+            className="leading-relaxed mb-5"
+            style={{ color: '#151516', fontSize: '0.6rem', marginTop: '1.2rem', lineHeight: '1.4' }}
+          >
+            {contactLines.map((line, i) => (
+              <p key={i}>{line}</p>
+            ))}
+          </div>
+        )}
+
+        <hr></hr>
+
+        {/* Desarrollado por */}
+        {developedByText && (
+          <p style={{ color: 'black', fontSize: '0.5rem', marginTop: '0.6rem' }}>
+            {developedByText}
+          </p>
+        )}
 
         {/* Copyright */}
-        <p className="text-xs text-gray-500">{copyrightText}</p>
+        {copyrightText && (
+          <p style={{ color: '#151516', fontSize: '0.5rem', marginTop: '0.2rem' }}>
+            {copyrightText}
+          </p>
+        )}
       </div>
     </footer>
   );

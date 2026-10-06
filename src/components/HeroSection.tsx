@@ -13,22 +13,23 @@ export default function HeroSection({
 }: HeroSectionProps) {
   return (
     <section
-      style={{ backgroundColor }}
-      className="text-white py-20 px-4 flex flex-col items-center justify-center text-center min-h-[50vh] rounded-[20px] md:rounded-none overflow-hidden"
+      style={{ backgroundColor, minHeight: '20vh' }}
+      className="text-white p-0 flex flex-col items-center justify-center text-center min-h-[25vh] rounded-[20px] md:rounded-none overflow-hidden"
     >
       {logoSrc && (
         <img
           src={logoSrc}
           alt={`Logo ${organizationName}`}
-          className="w-28 h-28 md:w-36 md:h-36 object-contain mb-6 drop-shadow-lg"
+          style={{ width: '15rem', height: '10rem' }}
+          className="w-48 h-28 md:w-48 md:h-28 object-contain mb-0"
         />
       )}
-      <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight mb-3">
+      {/* <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight mb-3">
         {organizationName}
       </h1>
       {tagline && (
         <p className="text-lg md:text-xl text-white/80 max-w-xl">{tagline}</p>
-      )}
+      )}*/}
     </section>
   );
 }
