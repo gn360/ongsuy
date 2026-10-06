@@ -37,12 +37,9 @@ export const siteConfig = {
   widget: {
     dflink: 'https://donafacil.uy/organizadores/asociacion-casa-ronald-mcdonald-uruguay',
     title: 'Colaborá mensualmente',
-    /*embedHtml: `<div id="df-donation-form"></div>
-            <link rel="stylesheet" href="https://donafacil.uy/embed/donation-form.css">
-            <script src="https://donafacil.uy/embed/donation-form.js" data-slug="apoya-a-las-familias-de-la-asociacion-casa-ronald-mcdonald-CLFqEJ" data-sku="649DCTJT"></script>`,*/
     embedHtml: `<div id="df-donation-form"></div>
-            <link rel="stylesheet" href="http://localhost:3000/embed/donation-form.css">
-            <script src="http://localhost:3000/embed/donation-form.js" data-slug="apoya-a-las-familias-de-la-asociacion-casa-ronald-mcdonald-CLFqEJ" data-sku="649DCTJT"></script>`,
+            <link rel="stylesheet" href="https://donafacil.uy/embed/donation-form.css">
+            <script src="https://donafacil.uy/embed/donation-form.js" data-slug="apoya-a-las-familias-de-la-asociacion-casa-ronald-mcdonald-CLFqEJ" data-sku="649DCTJT"></script>`,
   },
 
   /** ── Bloque 4: Galería ── */
